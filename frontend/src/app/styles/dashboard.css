@@ -1292,6 +1292,131 @@ nav a:hover {
   background-color: #a977d216;
   filter: none;
 }
+@property --cta-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 35deg;
+}
+.button.glow-action {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 44px;
+  padding: 9px 23px;
+  border-color: #ffffff24;
+  background: radial-gradient(110% 110% at 50% 210%, #ffffff38, #ffffff00), #ffffff09;
+  box-shadow:
+    inset 0 1px #ffffff0a,
+    0 5px 22px #934bdd16;
+  font-family: 'Onest', 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.15px;
+  line-height: 24px;
+}
+.button.glow-action::before,
+.button.glow-action::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.button.glow-action::before {
+  padding: 1px;
+  background: conic-gradient(
+    from var(--cta-angle),
+    #ffffff00 0deg,
+    #d8b9ff35 38deg,
+    #f5ebffc9 75deg,
+    #ffffff00 125deg,
+    #ffffff00 235deg,
+    #d5a8ff70 280deg,
+    #ffffff00 330deg
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: cta-orbit 4s linear infinite;
+  opacity: 0.85;
+}
+.button.glow-action::after {
+  z-index: -1;
+  background:
+    radial-gradient(circle at 9% 33%, #efdcff90 0 0.55px, transparent 0.95px),
+    radial-gradient(circle at 18% 78%, #ffffff60 0 0.45px, transparent 0.85px),
+    radial-gradient(circle at 34% 17%, #ffffff70 0 0.55px, transparent 0.95px),
+    radial-gradient(circle at 54% 83%, #e2c7ff80 0 0.55px, transparent 0.95px),
+    radial-gradient(circle at 71% 25%, #ffffff70 0 0.45px, transparent 0.85px),
+    radial-gradient(circle at 86% 71%, #f4e5ff80 0 0.55px, transparent 0.95px),
+    radial-gradient(circle at 95% 40%, #ffffff70 0 0.45px, transparent 0.85px),
+    radial-gradient(ellipse 85% 140% at 50% 135%, #c5a0f53d, #ffffff00 90%);
+  animation: cta-shimmer 4s ease-in-out infinite;
+  opacity: 0.55;
+}
+.glow-action-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: inherit;
+  position: relative;
+  background: linear-gradient(180deg, #e8dbf3bf, #fff 85%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.glow-action-label > svg {
+  color: #eee2fb;
+}
+.button.glow-action:not(:disabled):hover,
+.button.glow-action:focus-visible {
+  background-color: #ffffff10;
+  border-color: #e0c2ff52;
+  box-shadow:
+    inset 0 1px #ffffff14,
+    0 5px 28px #b578e72b;
+}
+.button.glow-action:disabled::before,
+.button.glow-action:disabled::after {
+  animation: none;
+  opacity: 0.2;
+}
+@keyframes cta-orbit {
+  to {
+    --cta-angle: 395deg;
+  }
+}
+@keyframes cta-shimmer {
+  50% {
+    opacity: 0.9;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .button.glow-action::before,
+  .button.glow-action::after {
+    animation: none;
+  }
+}
+@media (forced-colors: active) {
+  .button.glow-action::before,
+  .button.glow-action::after {
+    display: none;
+  }
+  .glow-action-label {
+    background: none;
+    color: ButtonText;
+    -webkit-text-fill-color: ButtonText;
+  }
+  .glow-action-label > svg {
+    color: ButtonText;
+  }
+}
 .overview-grid {
   position: relative;
 }

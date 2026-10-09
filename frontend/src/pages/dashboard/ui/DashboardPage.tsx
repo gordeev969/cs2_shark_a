@@ -2,7 +2,7 @@ import { isSnapshotMode } from '@/shared/config'
 import { Link } from 'react-router-dom'
 import { useData } from '@/shared/api'
 import type { Dashboard } from '@/shared/api/contracts'
-import { Title, Gate, Empty } from '@/shared/ui'
+import { Title, Gate, Empty, GlowLink } from '@/shared/ui'
 import { FileUp, ArrowRight, TrendingUp, Activity } from 'lucide-react'
 import { useAuth } from '@/entities/auth'
 import { SyncMatches } from '@/features/connect-cs2'
@@ -33,18 +33,15 @@ export function DashboardPage() {
         }
         action={
           isSnapshotMode ? (
-            <Link
-              className="button primary"
-              to={d?.recent_matches[0] ? `/matches/${d.recent_matches[0].id}` : '/matches'}
-            >
+            <GlowLink to={d?.recent_matches[0] ? `/matches/${d.recent_matches[0].id}` : '/matches'}>
               Открыть отчёт матча <ArrowRight size={17} />
-            </Link>
+            </GlowLink>
           ) : d?.cs2?.connected ? (
             <SyncMatches pending={isSyncPending(d.cs2)} onQueued={result.retry} />
           ) : (
-            <Link className="button primary" to={user ? '/connect' : '/import'}>
+            <GlowLink to={user ? '/connect' : '/import'}>
               <FileUp size={17} /> {user ? 'Подключить CS2' : 'Загрузить демку'}
-            </Link>
+            </GlowLink>
           )
         }
       />

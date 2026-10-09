@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { RefreshCw } from 'lucide-react'
 import { api } from '@/shared/api'
+import { GlowButton } from '@/shared/ui'
 export function SyncMatches({
   pending = false,
   onQueued,
@@ -24,10 +25,10 @@ export function SyncMatches({
   }
   return (
     <div>
-      <button className="button primary" disabled={pending || busy} onClick={() => void sync()}>
+      <GlowButton disabled={pending || busy} onClick={() => void sync()}>
         <RefreshCw size={16} className={pending || busy ? 'spin' : ''} />
         {pending || busy ? 'Обновляем…' : 'Обновить матчи'}
-      </button>
+      </GlowButton>
       {error && (
         <p role="alert" className="error-text">
           {error}

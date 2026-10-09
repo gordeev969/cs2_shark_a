@@ -94,3 +94,7 @@ Frontend lint/format/typecheck and both native and Pages builds pass. All 11 fro
 ## Onest typography update
 
 Сравнены Manrope, Onest и Golos Text; выбран Onest для заголовков и крупных показателей, Manrope сохранён для подписей и таблиц. Прошли FSD/ESLint, Prettier, 11 frontend tests, сборки native/Pages и Pages smoke на семи ширинах 320–1920 px. Отдельная браузерная проверка подтвердила HTTP 200 обоих локальных шрифтов, использование Onest в заголовках/метриках, Manrope в подписях, табличные цифры счёта и читаемый заголовок при forced colors. JavaScript ошибок нет. fc-scan подтвердил поддержку русского языка в файле Onest; лицензия SIL OFL включена. Числовая логика и backend не менялись; предыдущий native replay/E2E результат остаётся актуальным.
+
+## Glowing primary action
+
+Добавлены общие `GlowLink`/`GlowButton` в shared/ui и оформление основной кнопки по Wope «Unlimited trial for 14 days». Прошли FSD/ESLint, Prettier, 11 frontend tests, сборки native/Pages и 5 native Playwright tests, включая настоящую контрольную демку и синхронизацию с контролируемыми Steam/CS2-ответами. Pages smoke прошёл на семи ширинах 320–1920 px. Отдельная браузерная проверка подтвердила движение блика (кадры при разных углах отличаются), hover, видимый focus и переход по Enter, остановку анимаций при reduced motion и читаемость при forced colors. JavaScript ошибок нет. Скриншоты дашборда обновлены; крупный план кнопки — `screenshots/dashboard-cta.png`.
