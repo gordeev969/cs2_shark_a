@@ -1,4 +1,12 @@
 @font-face {
+  font-family: 'Onest';
+  src: url('/fonts/Onest-Variable.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Manrope';
   src: url('/fonts/Manrope-Variable.ttf') format('truetype');
   font-style: normal;
@@ -24,6 +32,21 @@
 }
 body {
   min-width: 320px;
+}
+h1,
+h2,
+h3,
+.brand strong,
+.stat-card > strong,
+.overview-kda strong,
+.latest-score,
+.match-banner > div > strong {
+  font-family: 'Onest', 'Manrope', sans-serif;
+}
+.overview-kda strong,
+.latest-score,
+.match-banner > div > strong {
+  font-variant-numeric: tabular-nums;
 }
 .sidebar {
   overflow-y: auto;

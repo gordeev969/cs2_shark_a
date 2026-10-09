@@ -90,3 +90,7 @@ Frontend lint/format/typecheck and both native and Pages builds pass. All 11 fro
 ## Wope-inspired visual update
 
 Палитра, типографика, карточки и эффекты обновлены без изменений парсера, базы, snapshot или числовых метрик. Прошли FSD/ESLint, Prettier, 11 frontend tests и сборки native/Pages. Все 5 native Playwright-сценариев прошли, включая импорт настоящей контрольной демки; внешние Steam/CS2-ответы в этих сценариях контролируемые. Pages smoke прошёл на семи ширинах 320–1920 px, включая маршруты матча/профиля и мобильное меню. Дополнительно проверены HTTP 200 локального Manrope, загрузка шрифта, положение подсветки под мышью, отключение эффекта при reduced motion и читаемость заголовка при forced colors. Скриншоты Pages обновлены в `docs/screenshots/pages-*.png`.
+
+## Onest typography update
+
+Сравнены Manrope, Onest и Golos Text; выбран Onest для заголовков и крупных показателей, Manrope сохранён для подписей и таблиц. Прошли FSD/ESLint, Prettier, 11 frontend tests, сборки native/Pages и Pages smoke на семи ширинах 320–1920 px. Отдельная браузерная проверка подтвердила HTTP 200 обоих локальных шрифтов, использование Onest в заголовках/метриках, Manrope в подписях, табличные цифры счёта и читаемый заголовок при forced colors. JavaScript ошибок нет. fc-scan подтвердил поддержку русского языка в файле Onest; лицензия SIL OFL включена. Числовая логика и backend не менялись; предыдущий native replay/E2E результат остаётся актуальным.
