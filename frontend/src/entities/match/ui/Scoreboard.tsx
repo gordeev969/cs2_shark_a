@@ -1,3 +1,4 @@
+import { isSnapshotMode } from '@/shared/config'
 import { Link } from 'react-router-dom'
 import type { Participant } from '@/shared/api/contracts'
 import { Avatar } from '@/shared/ui'
@@ -29,7 +30,9 @@ export function Scoreboard({ players, mySteamId }: { players: Participant[]; myS
                   <Avatar small name={p.nickname} />
                   <span>
                     <strong>{p.nickname}</strong>
-                    {p.steam_id64 === mySteamId && <small>Вы</small>}
+                    {p.steam_id64 === mySteamId && (
+                      <small>{isSnapshotMode ? 'Выбран' : 'Вы'}</small>
+                    )}
                   </span>
                 </Link>
               </td>

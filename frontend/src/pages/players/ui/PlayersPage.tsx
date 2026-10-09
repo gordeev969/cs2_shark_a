@@ -1,3 +1,4 @@
+import { isSnapshotMode } from '@/shared/config'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useData } from '@/shared/api'
@@ -45,7 +46,9 @@ export function PlayersPage() {
                   <div>
                     <strong>
                       {p.latest_nickname}
-                      {settings?.steam_id64 === p.steam_id64 && <span className="you-tag">Вы</span>}
+                      {settings?.steam_id64 === p.steam_id64 && (
+                        <span className="you-tag">{isSnapshotMode ? 'Выбран' : 'Вы'}</span>
+                      )}
                     </strong>
                     <code>{p.steam_id64}</code>
                     <span>{p.matches} матчей в базе</span>

@@ -2,16 +2,16 @@ import { isSnapshotMode } from '@/shared/config'
 import { Link } from 'react-router-dom'
 import { useData } from '@/shared/api'
 import type { Dashboard } from '@/shared/api/contracts'
-import { Title, Gate, Empty, Avatar } from '@/shared/ui'
-import { FileUp, ArrowRight, Crosshair, TrendingUp, ChevronRight } from 'lucide-react'
+import { Title, Gate, Empty } from '@/shared/ui'
+import { FileUp, ArrowRight, TrendingUp, Activity } from 'lucide-react'
 import { useAuth } from '@/entities/auth'
 import { SyncMatches } from '@/features/connect-cs2'
 import { connectionStatus, isSyncPending } from '@/entities/cs2-connection'
 import { useSettings } from '@/entities/settings'
 import { MatchRows, hasPendingImports } from '@/entities/match'
-import { HistoryNotes } from '@/entities/player'
 import { StatCards } from '@/widgets/player-stats'
 import { Trend } from '@/widgets/player-history'
+import { DashboardOverview } from '@/widgets/dashboard-overview'
 
 export function DashboardPage() {
   const { user } = useAuth()
@@ -25,11 +25,18 @@ export function DashboardPage() {
     <>
       <Title
         eyebrow={isSnapshotMode ? 'КОНТРОЛЬНАЯ ДЕМКА / ОБЗОР' : 'ЛИЧНОЕ ПРОСТРАНСТВО / ОБЗОР'}
-        title={isSnapshotMode ? 'Матч. В деталях.' : 'Ваша игра. В деталях.'}
-        subtitle="Разбирайте матчи, замечайте изменения и играйте осознаннее."
+        title="Обзор игры"
+        subtitle={
+          isSnapshotMode
+            ? 'Разбор настоящей демки. Все важные показатели — в одном месте.'
+            : 'Ваши матчи и показатели. От результата к каждому раунду.'
+        }
         action={
           isSnapshotMode ? (
-            <Link className="button primary" to="/matches">
+            <Link
+              className="button primary"
+              to={d?.recent_matches[0] ? `/matches/${d.recent_matches[0].id}` : '/matches'}
+            >
               Открыть отчёт матча <ArrowRight size={17} />
             </Link>
           ) : d?.cs2?.connected ? (
@@ -44,34 +51,6 @@ export function DashboardPage() {
       <Gate {...result}>
         {d && (
           <>
-            {user && (
-              <section className="panel account-banner">
-                <Link to={`/players/${user.steam_id64}`} className="profile-inline">
-                  {user.avatar_url ? (
-                    <img
-                      className="steam-avatar"
-                      src={user.avatar_url}
-                      alt=""
-                      referrerPolicy="no-referrer"
-                    />
-                  ) : (
-                    <Avatar name={user.display_name} />
-                  )}
-                  <div>
-                    <strong>{user.display_name}</strong>
-                    <span>
-                      Ваш Steam-профиль · {d.personal?.summary.matches ?? 0} разобранных матчей
-                    </span>
-                  </div>
-                  <ChevronRight size={20} />
-                </Link>
-                <Link className="text-link" to="/connect">
-                  {d.cs2?.connected
-                    ? `CS2: ${connectionStatus(d.cs2.status)}`
-                    : 'Подключить историю CS2 →'}
-                </Link>
-              </section>
-            )}
             {d.cs2?.error && (
               <p className="notice" role="status">
                 {d.cs2.error}{' '}
@@ -80,53 +59,20 @@ export function DashboardPage() {
                 </Link>
               </p>
             )}
-            <div className="hero-panel">
-              <div className="hero-content">
-                <span className="tag">
-                  <span className="live-dot" />{' '}
-                  {isSnapshotMode ? 'ФАКТЫ ИЗ НАСТОЯЩЕЙ ДЕМКИ' : 'ЛОКАЛЬНАЯ АНАЛИТИКА CS2'}
+            {user && (
+              <div className="account-connection">
+                <span>
+                  <span className="live-dot" /> Steam-профиль подтверждён
                 </span>
-                <h2>
-                  Каждый раунд
-                  <br />
-                  рассказывает больше.
-                </h2>
-                <p>
-                  {isSnapshotMode ? (
-                    'Mirage. 10 игроков. Каждый показатель рассчитан по событиям настоящей записи матча.'
-                  ) : (
-                    <>
-                      Убийства, эффективный урон и ваша история —<br className="desktop" /> из
-                      настоящих демо, на вашем компьютере.
-                    </>
-                  )}
-                </p>
-                <Link
-                  to={
-                    isSnapshotMode ? '/matches' : user && !d.cs2?.connected ? '/connect' : '/import'
-                  }
-                  className="hero-link"
-                >
-                  {isSnapshotMode
-                    ? 'Открыть статистику матча'
-                    : user && !d.cs2?.connected
-                      ? 'Подключить свою историю'
-                      : 'Разобрать демку вручную'}{' '}
-                  <ArrowRight size={18} />
+                <Link className="text-link" to="/connect">
+                  {d.cs2?.connected
+                    ? `CS2: ${connectionStatus(d.cs2.status)}`
+                    : 'Подключить историю CS2'}{' '}
+                  <ArrowRight size={14} />
                 </Link>
               </div>
-              <div className="hero-radar" aria-hidden="true">
-                <div className="radar-circle one" />
-                <div className="radar-circle two" />
-                <div className="radar-circle three" />
-                <Crosshair size={86} strokeWidth={0.8} />
-                <span className="radar-dot a" />
-                <span className="radar-dot b" />
-                <span className="radar-dot c" />
-                <span className="radar-label">REPLAY → INSIGHT</span>
-              </div>
-              <span className="hero-index">01 / PREMIER ANALYZER</span>
-            </div>
+            )}
+            <DashboardOverview profile={d.personal} latestMatch={d.recent_matches[0]} user={user} />
             <StatCards
               matches={d.match_count}
               players={d.player_count}
@@ -137,7 +83,9 @@ export function DashboardPage() {
                 <div className="section-heading">
                   <div>
                     <h2>Последние матчи</h2>
-                    <p>Результат, K / D / A и ADR из разобранных демок</p>
+                    <p>
+                      Матчей: {d.match_count} · Игроков: {d.player_count}
+                    </p>
                   </div>
                   <Link className="text-link" to="/matches">
                     Все матчи <ArrowRight size={14} />
@@ -147,20 +95,40 @@ export function DashboardPage() {
               </section>
               <section className="panel personal-panel">
                 <div className="section-heading">
-                  <h2>{isSnapshotMode ? 'Выбранный игрок' : 'Ваш прогресс'}</h2>
+                  <h2>Что говорит история</h2>
                   <TrendingUp size={19} />
                 </div>
                 {d.personal ? (
                   <>
-                    <Link className="profile-inline" to={`/players/${d.personal.steam_id64}`}>
-                      <Avatar name={d.personal.latest_nickname} />
+                    <div className="history-status">
+                      <span className="history-icon">
+                        <Activity size={21} />
+                      </span>
                       <div>
-                        <strong>{d.personal.latest_nickname}</strong>
-                        <span>{d.personal.summary.matches} матчей в базе</span>
+                        <strong>
+                          {d.personal.insights.status === 'insufficient'
+                            ? 'Собираем историю'
+                            : 'Есть что сравнить'}
+                        </strong>
+                        <span>
+                          {d.personal.insights.status === 'insufficient'
+                            ? `${d.personal.insights.sample_size} из ${d.personal.insights.minimum_matches} матчей для анализа изменений`
+                            : `${d.personal.insights.sample_size} матчей в наблюдаемой истории`}
+                        </span>
                       </div>
-                      <ChevronRight size={17} />
+                    </div>
+                    <div className="sample-track" aria-hidden="true">
+                      {Array.from({ length: d.personal.insights.minimum_matches }, (_, i) => (
+                        <span
+                          key={i}
+                          className={i < d.personal!.insights.sample_size ? 'filled' : ''}
+                        />
+                      ))}
+                    </div>
+                    <p className="history-explanation">{d.personal.insights.message}</p>
+                    <Link className="text-link" to={`/players/${d.personal.steam_id64}`}>
+                      Подробная история игрока <ArrowRight size={15} />
                     </Link>
-                    <HistoryNotes insights={d.personal.insights} />
                   </>
                 ) : (
                   <Empty

@@ -19,7 +19,9 @@ export function Trend({ profile }: { profile: Profile }) {
     .reverse()
     .map((h) => ({ label: `#${h.match_id}`, value: h[metric] }))
   return (
-    <section className="panel">
+    <section
+      className={`panel trend-panel ${data.length < 2 || data.every((d) => d.value == null) ? 'trend-insufficient' : ''}`}
+    >
       <div className="section-heading">
         <div>
           <h2>Динамика игры</h2>

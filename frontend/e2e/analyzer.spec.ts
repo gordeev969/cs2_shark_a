@@ -3,10 +3,10 @@ import { expect, test } from '@playwright/test'
 test('Russian dashboard, empty state and mobile navigation', async ({ page, request }) => {
   const d = await (await request.get('/api/dashboard')).json()
   await page.goto('/')
-  await expect(page.getByRole('heading', { name: 'Ваша игра. В деталях.' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Обзор игры' })).toBeVisible()
   if (!d.match_count)
     await expect(page.getByRole('heading', { name: 'Здесь будут ваши матчи' })).toBeVisible()
-  await expect(page.getByText('Локальный API подключён')).toBeVisible()
+  await expect(page.getByText('API подключён', { exact: true })).toBeVisible()
   await page.setViewportSize({ width: 390, height: 844 })
   await page.getByRole('button', { name: 'Открыть меню' }).click()
   await page.getByRole('navigation').getByRole('link', { name: 'Настройки' }).click()
@@ -79,7 +79,11 @@ test('real demo upload, all participants, own profile, deduplication and local-o
   await expect(page.locator('.scoreboard')).toBeVisible()
   await page.screenshot({ path: '/tmp/cs2-match-desktop.png', fullPage: true })
   await page.setViewportSize({ width: 390, height: 844 })
-  await expect(page.locator('.sidebar')).toHaveCSS('transform', 'matrix(1, 0, 0, 1, -234, 0)')
+  await expect(page.locator('.sidebar')).toHaveAttribute('inert', '')
+  await expect(page.getByRole('button', { name: 'Открыть меню' })).toHaveAttribute(
+    'aria-expanded',
+    'false',
+  )
   await page.screenshot({ path: '/tmp/cs2-match-mobile.png', fullPage: true })
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(
     true,

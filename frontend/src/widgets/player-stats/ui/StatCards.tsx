@@ -1,7 +1,6 @@
-import { isSnapshotMode } from '@/shared/config'
 import type { Summary } from '@/shared/api/contracts'
 import { fmt } from '@/shared/lib'
-import { Swords, Users, Target, Activity, TrendingUp } from 'lucide-react'
+import { Swords, Target, Activity, TrendingUp, Crosshair } from 'lucide-react'
 
 export function StatCards({
   summary,
@@ -16,37 +15,37 @@ export function StatCards({
     matches != null
       ? [
           {
-            label: 'Матчей в базе',
-            value: fmt(matches, 0),
-            hint: 'Успешно разобранные демки',
-            icon: Swords,
-          },
-          {
-            label: 'Игроков',
-            value: fmt(players, 0),
-            hint: isSnapshotMode ? 'Участники контрольной демки' : 'Из ваших локальных импортов',
-            icon: Users,
-          },
-          {
-            label: isSnapshotMode ? 'K/D выбранного игрока' : 'Личный K/D',
+            label: 'K/D',
             value: fmt(summary?.kd, 2),
-            hint: summary ? `Последние ${summary.matches} импортов` : 'Укажите свой SteamID64',
+            hint: 'Отношение убийств к смертям',
             icon: Target,
           },
           {
-            label: isSnapshotMode ? 'ADR выбранного игрока' : 'Личный ADR',
+            label: 'ADR',
             value: fmt(summary?.adr, 1),
-            hint: summary
-              ? `${summary.adr_matches} матчей с данными урона`
-              : 'Укажите свой SteamID64',
+            hint: 'Эффективный урон за раунд',
             icon: Activity,
+          },
+          {
+            label: 'Попадания в голову',
+            value: summary?.hs_percent == null ? 'нет данных' : `${fmt(summary.hs_percent, 1)}%`,
+            hint: 'Доля убийств в голову',
+            icon: Crosshair,
+          },
+          {
+            label: 'Убийства за раунд',
+            value: fmt(summary?.kr, 2),
+            hint: summary
+              ? `${fmt(summary.rounds_played, 0)} завершённых раундов`
+              : `${players ?? 0} игроков в базе`,
+            icon: TrendingUp,
           },
         ]
       : [
           {
             label: 'Наблюдаемых матчей',
             value: fmt(summary?.matches, 0),
-            hint: isSnapshotMode ? 'Опубликованная выборка' : 'Только ваша локальная база',
+            hint: 'Матчи в наблюдаемой истории',
             icon: Swords,
           },
           {
@@ -71,7 +70,10 @@ export function StatCards({
   return (
     <div className="stat-grid">
       {items.map((item) => (
-        <div key={item.label} className="stat-card">
+        <div
+          key={item.label}
+          className={`stat-card ${item.label === 'ADR' ? 'featured-stat' : ''}`}
+        >
           <div className="stat-label">
             {item.label}
             <item.icon size={17} />
