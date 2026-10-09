@@ -22,6 +22,7 @@ import {
 import { useAuth } from '@/entities/auth'
 import { SteamSignOut } from '@/features/steam-session'
 import { useSettings } from '@/entities/settings'
+import { usePointerGlow } from '@/shared/lib'
 
 const navigation = [
   { to: '/', label: 'Обзор', icon: LayoutDashboard },
@@ -36,6 +37,9 @@ export function AppShell({ children }: { children: ReactNode }) {
   const { user } = useAuth()
   const { settings } = useSettings()
   const health = useData<Health>('/api/health')
+  const glow = usePointerGlow(
+    '.profile-overview, .latest-match-card, .stat-card, .panel, .player-card',
+  )
   const [open, setOpen] = useState(false)
   const [mobile, setMobile] = useState(() => window.matchMedia('(max-width: 700px)').matches)
   useEffect(() => {
@@ -61,7 +65,7 @@ export function AppShell({ children }: { children: ReactNode }) {
     }
   }, [open])
   return (
-    <div className={`app ${settings?.compact ? 'compact' : ''}`}>
+    <div className={`app ${settings?.compact ? 'compact' : ''}`} onPointerMove={glow}>
       <div className="mobile-bar">
         <Link to="/" className="brand">
           <Crosshair size={24} />

@@ -57,17 +57,17 @@ export function Trend({ profile }: { profile: Profile }) {
               <YAxis stroke="#7e8c8c" tickLine={false} axisLine={false} width={42} />
               <Tooltip
                 contentStyle={{
-                  background: '#172022',
-                  border: '1px solid #35423d',
+                  background: '#21132f',
+                  border: '1px solid #664a80',
                   borderRadius: 10,
                 }}
                 formatter={(v) => [fmt(Number(v), 2), metric === 'adr' ? 'ADR' : 'K/D']}
               />
               <Line
                 dataKey="value"
-                stroke="#c0f36b"
+                stroke="var(--accent)"
                 strokeWidth={2.5}
-                dot={{ r: 3, fill: '#c0f36b' }}
+                dot={{ r: 3, fill: 'var(--accent)' }}
                 connectNulls={false}
               />
             </LineChart>

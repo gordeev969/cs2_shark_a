@@ -86,3 +86,7 @@ Readonly snapshot: 101 backend tests passed (2 optional real-demo tests skipped 
 ## Dashboard design update
 
 Frontend lint/format/typecheck and both native and Pages builds pass. All 11 frontend unit tests pass. Five native Playwright scenarios pass, including real upstream demo import/deduplication and mocked Steam session/CS2/CSRF/logout. The separate Pages smoke checks dashboard, match and profile routes at 320/360/390/768/1024/1440/1920 px, direct reload, player selection, menu inert/Escape/scroll restoration and readonly controls; no JavaScript errors or API calls. Sidebar scrolling was repaired for short screens.
+
+## Wope-inspired visual update
+
+Палитра, типографика, карточки и эффекты обновлены без изменений парсера, базы, snapshot или числовых метрик. Прошли FSD/ESLint, Prettier, 11 frontend tests и сборки native/Pages. Все 5 native Playwright-сценариев прошли, включая импорт настоящей контрольной демки; внешние Steam/CS2-ответы в этих сценариях контролируемые. Pages smoke прошёл на семи ширинах 320–1920 px, включая маршруты матча/профиля и мобильное меню. Дополнительно проверены HTTP 200 локального Manrope, загрузка шрифта, положение подсветки под мышью, отключение эффекта при reduced motion и читаемость заголовка при forced colors. Скриншоты Pages обновлены в `docs/screenshots/pages-*.png`.
