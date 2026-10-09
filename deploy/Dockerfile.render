@@ -1,0 +1,30 @@
+# syntax=docker/dockerfile:1
+FROM node:22-alpine AS frontend-build
+WORKDIR /frontend
+COPY frontend/package.json frontend/package-lock.json ./
+RUN --mount=type=secret,id=proxy_ca \
+    if [ -f /run/secrets/proxy_ca ]; then export NODE_EXTRA_CA_CERTS=/run/secrets/proxy_ca; fi; \
+    npm ci --strict-ssl=true
+COPY frontend/ ./
+RUN npm run build
+
+FROM python:3.12-slim
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    CS2_DATA_DIR=/var/data \
+    CS2_FRONTEND_DIR=/app/frontend/dist \
+    CS2_REQUIRE_STEAM_LOGIN=true
+WORKDIR /app
+COPY backend/requirements.txt /app/backend/requirements.txt
+RUN --mount=type=secret,id=proxy_ca \
+    if [ -f /run/secrets/proxy_ca ]; then export PIP_CERT=/run/secrets/proxy_ca; fi; \
+    pip install --no-cache-dir -r backend/requirements.txt \
+    && useradd --uid 10001 --create-home analyzer \
+    && mkdir -p /var/data \
+    && chown analyzer:analyzer /var/data
+COPY --chown=analyzer:analyzer backend/app /app/backend/app
+COPY --from=frontend-build --chown=analyzer:analyzer /frontend/dist /app/frontend/dist
+COPY --chmod=644 deploy/render-start.py /app/render-start.py
+EXPOSE 8000
+# The launcher prepares disk ownership, then drops root before starting Uvicorn.
+CMD ["python", "/app/render-start.py"]

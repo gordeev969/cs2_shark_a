@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: cs2-premier-analyzer
+    runtime: docker
+    dockerfilePath: ./deploy/Dockerfile.render
+    dockerContext: .
+    plan: standard
+    healthCheckPath: /api/health
+    disk:
+      name: analyzer-data
+      mountPath: /var/data
+      sizeGB: 10
+    envVars:
+      - key: CS2_DATA_DIR
+        value: /var/data
+      - key: CS2_REQUIRE_STEAM_LOGIN
+        value: "true"
+      - key: CS2_MAX_UPLOAD_MB
+        value: "512"
+      - key: CS2_RETAIN_DEMOS
+        value: "false"
+      - key: CS2_PARSER_TIMEOUT
+        value: "180"

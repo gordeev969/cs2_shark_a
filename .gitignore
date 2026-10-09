@@ -1,0 +1,17 @@
+.venv/
+node_modules/
+dist/
+data/
+.env
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.dem
+*.sqlite3*
+*.log
+playwright-report/
+test-results/
+.secrets/
+gc-worker/.secrets/
+*.refresh-token
+*.tsbuildinfo

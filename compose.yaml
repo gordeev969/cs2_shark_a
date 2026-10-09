@@ -1,0 +1,67 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      CS2_DATA_DIR: /data
+      CS2_MAX_UPLOAD_MB: ${CS2_MAX_UPLOAD_MB:-512}
+      CS2_PARSER_TIMEOUT: ${CS2_PARSER_TIMEOUT:-180}
+      CS2_RETAIN_DEMOS: ${CS2_RETAIN_DEMOS:-false}
+      CS2_REQUIRE_STEAM_LOGIN: ${CS2_REQUIRE_STEAM_LOGIN:-true}
+      STEAM_PUBLIC_URL: ${STEAM_PUBLIC_URL:-http://127.0.0.1:8000}
+      STEAM_WEB_API_KEY: ${STEAM_WEB_API_KEY:-}
+      CS2_SECRET_KEY: ${CS2_SECRET_KEY:-}
+      CS2_GC_URL: ${CS2_GC_URL:-}
+      CS2_GC_SECRET: ${CS2_GC_SECRET:-}
+    volumes:
+      - analyzer-data:/data
+    networks:
+      - app
+      - web
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health', timeout=5)"]
+      interval: 10s
+      timeout: 6s
+      retries: 5
+      start_period: 20s
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    ports:
+      - "127.0.0.1:8000:8080"
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - app
+      - web
+    restart: unless-stopped
+
+  gc-worker:
+    profiles: ["gc"]
+    build:
+      context: .
+      dockerfile: gc-worker/Dockerfile
+    environment:
+      CS2_GC_SECRET: ${CS2_GC_SECRET:-}
+      CS2_GC_BIND: 0.0.0.0
+      CS2_GC_TOKEN_FILE: /sessions/steam-refresh-token
+      STEAM_GC_DATA_DIR: /sessions/steam-client
+    volumes:
+      - ./.secrets:/sessions
+    networks:
+      - app
+      - web
+    restart: unless-stopped
+
+volumes:
+  analyzer-data:
+
+networks:
+  app:
+    internal: true
+  web:

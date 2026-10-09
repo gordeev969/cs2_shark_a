@@ -1,0 +1,2996 @@
+{
+  "schema_version": 1,
+  "source": {
+    "url": "https://github.com/LaihoE/demoparser/blob/main/src/parser/test_demo.dem",
+    "matches": [
+      {
+        "id": 1,
+        "sha256": "84a1a4191302bdd2a3bbb5a727842093744b1fb1a228aeec630369e44b622cb2",
+        "parser_version": "0.42.0"
+      }
+    ]
+  },
+  "settings": { "steam_id64": "76561197964020430", "compact": false, "ai_enabled": false },
+  "players": [
+    {
+      "steam_id64": "76561197964020430",
+      "latest_nickname": "Подсосник blick'a",
+      "updated_at": "2026-10-09T12:32:39.200598+00:00",
+      "matches": 1
+    },
+    {
+      "steam_id64": "76561198073049527",
+      "latest_nickname": "miu miu",
+      "updated_at": "2026-10-09T12:32:39.200598+00:00",
+      "matches": 1
+    },
+    {
+      "steam_id64": "76561198118803912",
+      "latest_nickname": "Голова, глаза",
+      "updated_at": "2026-10-09T12:32:39.200598+00:00",
+      "matches": 1
+    },
+    {
+      "steam_id64": "76561198194694750",
+      "latest_nickname": "Dog",
+      "updated_at": "2026-10-09T12:32:39.200598+00:00",
+      "matches": 1
+    },
+    {
+      "steam_id64": "76561198202353993",
+      "latest_nickname": "IMI Negev",
+      "updated_at": "2026-10-09T12:32:39.200598+00:00",
+      "matches": 1
+    },
+    {
+      "steam_id64": "76561198244754626",
+      "latest_nickname": "NIGHTSOUL",
+      "updated_at": "2026-10-09T12:32:39.200598+00:00",
+      "matches": 1
+    },
+    {
+      "steam_id64": "76561198258044111",
+      "latest_nickname": "-ExΩtiC-",
+      "updated_at": "2026-10-09T12:32:39.200598+00:00",
+      "matches": 1
+    },
+    {
+      "steam_id64": "76561198265366770",
+      "latest_nickname": "123",
+      "updated_at": "2026-10-09T12:32:39.200598+00:00",
+      "matches": 1
+    },
+    {
+      "steam_id64": "76561198280975787",
+      "latest_nickname": "povergo",
+      "updated_at": "2026-10-09T12:32:39.200598+00:00",
+      "matches": 1
+    },
+    {
+      "steam_id64": "76561198324843075",
+      "latest_nickname": "Trahun <3 V",
+      "updated_at": "2026-10-09T12:32:39.200598+00:00",
+      "matches": 1
+    }
+  ],
+  "profiles": {
+    "76561197964020430": {
+      "steam_id64": "76561197964020430",
+      "latest_nickname": "Подсосник blick'a",
+      "summary": {
+        "matches": 1,
+        "kills": 11,
+        "deaths": 5,
+        "assists": 4,
+        "rounds_played": 9,
+        "kd": 2.2,
+        "adr": 135.44,
+        "adr_matches": 1,
+        "adr_rounds": 9,
+        "kr": 1.222,
+        "hs_percent": 36.36
+      },
+      "rolling": {
+        "matches": 1,
+        "kills": 11,
+        "deaths": 5,
+        "assists": 4,
+        "rounds_played": 9,
+        "kd": 2.2,
+        "adr": 135.44,
+        "adr_matches": 1,
+        "adr_rounds": 9,
+        "kr": 1.222,
+        "hs_percent": 36.36
+      },
+      "history": [
+        {
+          "steam_id64": "76561197964020430",
+          "nickname": "Подсосник blick'a",
+          "team": "A",
+          "kills": 11,
+          "deaths": 5,
+          "assists": 4,
+          "hs_kills": 4,
+          "rounds_played": 9,
+          "effective_damage": 1219.0,
+          "missing_reasons": [],
+          "kd": 2.2,
+          "hs_percent": 36.36,
+          "kr": 1.222,
+          "adr": 135.44,
+          "match_id": 1,
+          "map_name": "de_mirage",
+          "imported_at": "2026-10-09T12:32:39.200598+00:00",
+          "played_at": null
+        }
+      ],
+      "insights": {
+        "source": "Локальная выборка; сортировка по дате игры, при её отсутствии — по времени импорта",
+        "sample_size": 1,
+        "minimum_matches": 10,
+        "observations": [],
+        "status": "insufficient",
+        "message": "Недостаточно данных для оценки аномальности: 1 из 10 матчей. Недостаточно истории для оценки стабильности."
+      },
+      "map_splits": []
+    },
+    "76561198073049527": {
+      "steam_id64": "76561198073049527",
+      "latest_nickname": "miu miu",
+      "summary": {
+        "matches": 1,
+        "kills": 3,
+        "deaths": 8,
+        "assists": 3,
+        "rounds_played": 9,
+        "kd": 0.375,
+        "adr": 58.78,
+        "adr_matches": 1,
+        "adr_rounds": 9,
+        "kr": 0.333,
+        "hs_percent": 66.67
+      },
+      "rolling": {
+        "matches": 1,
+        "kills": 3,
+        "deaths": 8,
+        "assists": 3,
+        "rounds_played": 9,
+        "kd": 0.375,
+        "adr": 58.78,
+        "adr_matches": 1,
+        "adr_rounds": 9,
+        "kr": 0.333,
+        "hs_percent": 66.67
+      },
+      "history": [
+        {
+          "steam_id64": "76561198073049527",
+          "nickname": "miu miu",
+          "team": "B",
+          "kills": 3,
+          "deaths": 8,
+          "assists": 3,
+          "hs_kills": 2,
+          "rounds_played": 9,
+          "effective_damage": 529.0,
+          "missing_reasons": [],
+          "kd": 0.375,
+          "hs_percent": 66.67,
+          "kr": 0.333,
+          "adr": 58.78,
+          "match_id": 1,
+          "map_name": "de_mirage",
+          "imported_at": "2026-10-09T12:32:39.200598+00:00",
+          "played_at": null
+        }
+      ],
+      "insights": {
+        "source": "Локальная выборка; сортировка по дате игры, при её отсутствии — по времени импорта",
+        "sample_size": 1,
+        "minimum_matches": 10,
+        "observations": [],
+        "status": "insufficient",
+        "message": "Недостаточно данных для оценки аномальности: 1 из 10 матчей. Недостаточно истории для оценки стабильности."
+      },
+      "map_splits": []
+    },
+    "76561198118803912": {
+      "steam_id64": "76561198118803912",
+      "latest_nickname": "Голова, глаза",
+      "summary": {
+        "matches": 1,
+        "kills": 5,
+        "deaths": 7,
+        "assists": 2,
+        "rounds_played": 9,
+        "kd": 0.714,
+        "adr": 63.56,
+        "adr_matches": 1,
+        "adr_rounds": 9,
+        "kr": 0.556,
+        "hs_percent": 80.0
+      },
+      "rolling": {
+        "matches": 1,
+        "kills": 5,
+        "deaths": 7,
+        "assists": 2,
+        "rounds_played": 9,
+        "kd": 0.714,
+        "adr": 63.56,
+        "adr_matches": 1,
+        "adr_rounds": 9,
+        "kr": 0.556,
+        "hs_percent": 80.0
+      },
+      "history": [
+        {
+          "steam_id64": "76561198118803912",
+          "nickname": "Голова, глаза",
+          "team": "A",
+          "kills": 5,
+          "deaths": 7,
+          "assists": 2,
+          "hs_kills": 4,
+          "rounds_played": 9,
+          "effective_damage": 572.0,
+          "missing_reasons": [],
+          "kd": 0.714,
+          "hs_percent": 80.0,
+          "kr": 0.556,
+          "adr": 63.56,
+          "match_id": 1,
+          "map_name": "de_mirage",
+          "imported_at": "2026-10-09T12:32:39.200598+00:00",
+          "played_at": null
+        }
+      ],
+      "insights": {
+        "source": "Локальная выборка; сортировка по дате игры, при её отсутствии — по времени импорта",
+        "sample_size": 1,
+        "minimum_matches": 10,
+        "observations": [],
+        "status": "insufficient",
+        "message": "Недостаточно данных для оценки аномальности: 1 из 10 матчей. Недостаточно истории для оценки стабильности."
+      },
+      "map_splits": []
+    },
+    "76561198194694750": {
+      "steam_id64": "76561198194694750",
+      "latest_nickname": "Dog",
+      "summary": {
+        "matches": 1,
+        "kills": 6,
+        "deaths": 7,
+        "assists": 2,
+        "rounds_played": 9,
+        "kd": 0.857,
+        "adr": 83.78,
+        "adr_matches": 1,
+        "adr_rounds": 9,
+        "kr": 0.667,
+        "hs_percent": 16.67
+      },
+      "rolling": {
+        "matches": 1,
+        "kills": 6,
+        "deaths": 7,
+        "assists": 2,
+        "rounds_played": 9,
+        "kd": 0.857,
+        "adr": 83.78,
+        "adr_matches": 1,
+        "adr_rounds": 9,
+        "kr": 0.667,
+        "hs_percent": 16.67
+      },
+      "history": [
+        {
+          "steam_id64": "76561198194694750",
+          "nickname": "Dog",
+          "team": "B",
+          "kills": 6,
+          "deaths": 7,
+          "assists": 2,
+          "hs_kills": 1,
+          "rounds_played": 9,
+          "effective_damage": 754.0,
+          "missing_reasons": [],
+          "kd": 0.857,
+          "hs_percent": 16.67,
+          "kr": 0.667,
+          "adr": 83.78,
+          "match_id": 1,
+          "map_name": "de_mirage",
+          "imported_at": "2026-10-09T12:32:39.200598+00:00",
+          "played_at": null
+        }
+      ],
+      "insights": {
+        "source": "Локальная выборка; сортировка по дате игры, при её отсутствии — по времени импорта",
+        "sample_size": 1,
+        "minimum_matches": 10,
+        "observations": [],
+        "status": "insufficient",
+        "message": "Недостаточно данных для оценки аномальности: 1 из 10 матчей. Недостаточно истории для оценки стабильности."
+      },
+      "map_splits": []
+    },
+    "76561198202353993": {
+      "steam_id64": "76561198202353993",
+      "latest_nickname": "IMI Negev",
+      "summary": {
+        "matches": 1,
+        "kills": 4,
+        "deaths": 2,
+        "assists": 0,
+        "rounds_played": 9,
+        "kd": 2.0,
+        "adr": 35.0,
+        "adr_matches": 1,
+        "adr_rounds": 9,
+        "kr": 0.444,
+        "hs_percent": 100.0
+      },
+      "rolling": {
+        "matches": 1,
+        "kills": 4,
+        "deaths": 2,
+        "assists": 0,
+        "rounds_played": 9,
+        "kd": 2.0,
+        "adr": 35.0,
+        "adr_matches": 1,
+        "adr_rounds": 9,
+        "kr": 0.444,
+        "hs_percent": 100.0
+      },
+      "history": [
+        {
+          "steam_id64": "76561198202353993",
+          "nickname": "IMI Negev",
+          "team": "A",
+          "kills": 4,
+          "deaths": 2,
+          "assists": 0,
+          "hs_kills": 4,
+          "rounds_played": 9,
+          "effective_damage": 315.0,
+          "missing_reasons": [],
+          "kd": 2.0,
+          "hs_percent": 100.0,
+          "kr": 0.444,
+          "adr": 35.0,
+          "match_id": 1,
+          "map_name": "de_mirage",
+          "imported_at": "2026-10-09T12:32:39.200598+00:00",
+          "played_at": null
+        }
+      ],
+      "insights": {
+        "source": "Локальная выборка; сортировка по дате игры, при её отсутствии — по времени импорта",
+        "sample_size": 1,
+        "minimum_matches": 10,
+        "observations": [],
+        "status": "insufficient",
+        "message": "Недостаточно данных для оценки аномальности: 1 из 10 матчей. Недостаточно истории для оценки стабильности."
+      },
+      "map_splits": []
+    },
+    "76561198244754626": {
+      "steam_id64": "76561198244754626",
+      "latest_nickname": "NIGHTSOUL",
+      "summary": {
+        "matches": 1,
+        "kills": 10,
+        "deaths": 5,
+        "assists": 1,
+        "rounds_played": 9,
+        "kd": 2.0,
+        "adr": 106.0,
+        "adr_matches": 1,
+        "adr_rounds": 9,
+        "kr": 1.111,
+        "hs_percent": 60.0
+      },
+      "rolling": {
+        "matches": 1,
+        "kills": 10,
+        "deaths": 5,
+        "assists": 1,
+        "rounds_played": 9,
+        "kd": 2.0,
+        "adr": 106.0,
+        "adr_matches": 1,
+        "adr_rounds": 9,
+        "kr": 1.111,
+        "hs_percent": 60.0
+      },
+      "history": [
+        {
+          "steam_id64": "76561198244754626",
+          "nickname": "NIGHTSOUL",
+          "team": "A",
+          "kills": 10,
+          "deaths": 5,
+          "assists": 1,
+          "hs_kills": 6,
+          "rounds_played": 9,
+          "effective_damage": 954.0,
+          "missing_reasons": [],
+          "kd": 2.0,
+          "hs_percent": 60.0,
+          "kr": 1.111,
+          "adr": 106.0,
+          "match_id": 1,
+          "map_name": "de_mirage",
+          "imported_at": "2026-10-09T12:32:39.200598+00:00",
+          "played_at": null
+        }
+      ],
+      "insights": {
+        "source": "Локальная выборка; сортировка по дате игры, при её отсутствии — по времени импорта",
+        "sample_size": 1,
+        "minimum_matches": 10,
+        "observations": [],
+        "status": "insufficient",
+        "message": "Недостаточно данных для оценки аномальности: 1 из 10 матчей. Недостаточно истории для оценки стабильности."
+      },
+      "map_splits": []
+    },
+    "76561198258044111": {
+      "steam_id64": "76561198258044111",
+      "latest_nickname": "-ExΩtiC-",
+      "summary": {
+        "matches": 1,
+        "kills": 8,
+        "deaths": 8,
+        "assists": 1,
+        "rounds_played": 9,
+        "kd": 1.0,
+        "adr": 87.0,
+        "adr_matches": 1,
+        "adr_rounds": 9,
+        "kr": 0.889,
+        "hs_percent": 25.0
+      },
+      "rolling": {
+        "matches": 1,
+        "kills": 8,
+        "deaths": 8,
+        "assists": 1,
+        "rounds_played": 9,
+        "kd": 1.0,
+        "adr": 87.0,
+        "adr_matches": 1,
+        "adr_rounds": 9,
+        "kr": 0.889,
+        "hs_percent": 25.0
+      },
+      "history": [
+        {
+          "steam_id64": "76561198258044111",
+          "nickname": "-ExΩtiC-",
+          "team": "B",
+          "kills": 8,
+          "deaths": 8,
+          "assists": 1,
+          "hs_kills": 2,
+          "rounds_played": 9,
+          "effective_damage": 783.0,
+          "missing_reasons": [],
+          "kd": 1.0,
+          "hs_percent": 25.0,
+          "kr": 0.889,
+          "adr": 87.0,
+          "match_id": 1,
+          "map_name": "de_mirage",
+          "imported_at": "2026-10-09T12:32:39.200598+00:00",
+          "played_at": null
+        }
+      ],
+      "insights": {
+        "source": "Локальная выборка; сортировка по дате игры, при её отсутствии — по времени импорта",
+        "sample_size": 1,
+        "minimum_matches": 10,
+        "observations": [],
+        "status": "insufficient",
+        "message": "Недостаточно данных для оценки аномальности: 1 из 10 матчей. Недостаточно истории для оценки стабильности."
+      },
+      "map_splits": []
+    },
+    "76561198265366770": {
+      "steam_id64": "76561198265366770",
+      "latest_nickname": "123",
+      "summary": {
+        "matches": 1,
+        "kills": 11,
+        "deaths": 4,
+        "assists": 1,
+        "rounds_played": 9,
+        "kd": 2.75,
+        "adr": 129.22,
+        "adr_matches": 1,
+        "adr_rounds": 9,
+        "kr": 1.222,
+        "hs_percent": 72.73
+      },
+      "rolling": {
+        "matches": 1,
+        "kills": 11,
+        "deaths": 4,
+        "assists": 1,
+        "rounds_played": 9,
+        "kd": 2.75,
+        "adr": 129.22,
+        "adr_matches": 1,
+        "adr_rounds": 9,
+        "kr": 1.222,
+        "hs_percent": 72.73
+      },
+      "history": [
+        {
+          "steam_id64": "76561198265366770",
+          "nickname": "123",
+          "team": "A",
+          "kills": 11,
+          "deaths": 4,
+          "assists": 1,
+          "hs_kills": 8,
+          "rounds_played": 9,
+          "effective_damage": 1163.0,
+          "missing_reasons": [],
+          "kd": 2.75,
+          "hs_percent": 72.73,
+          "kr": 1.222,
+          "adr": 129.22,
+          "match_id": 1,
+          "map_name": "de_mirage",
+          "imported_at": "2026-10-09T12:32:39.200598+00:00",
+          "played_at": null
+        }
+      ],
+      "insights": {
+        "source": "Локальная выборка; сортировка по дате игры, при её отсутствии — по времени импорта",
+        "sample_size": 1,
+        "minimum_matches": 10,
+        "observations": [],
+        "status": "insufficient",
+        "message": "Недостаточно данных для оценки аномальности: 1 из 10 матчей. Недостаточно истории для оценки стабильности."
+      },
+      "map_splits": []
+    },
+    "76561198280975787": {
+      "steam_id64": "76561198280975787",
+      "latest_nickname": "povergo",
+      "summary": {
+        "matches": 1,
+        "kills": 4,
+        "deaths": 9,
+        "assists": 0,
+        "rounds_played": 9,
+        "kd": 0.444,
+        "adr": 38.22,
+        "adr_matches": 1,
+        "adr_rounds": 9,
+        "kr": 0.444,
+        "hs_percent": 50.0
+      },
+      "rolling": {
+        "matches": 1,
+        "kills": 4,
+        "deaths": 9,
+        "assists": 0,
+        "rounds_played": 9,
+        "kd": 0.444,
+        "adr": 38.22,
+        "adr_matches": 1,
+        "adr_rounds": 9,
+        "kr": 0.444,
+        "hs_percent": 50.0
+      },
+      "history": [
+        {
+          "steam_id64": "76561198280975787",
+          "nickname": "povergo",
+          "team": "B",
+          "kills": 4,
+          "deaths": 9,
+          "assists": 0,
+          "hs_kills": 2,
+          "rounds_played": 9,
+          "effective_damage": 344.0,
+          "missing_reasons": [],
+          "kd": 0.444,
+          "hs_percent": 50.0,
+          "kr": 0.444,
+          "adr": 38.22,
+          "match_id": 1,
+          "map_name": "de_mirage",
+          "imported_at": "2026-10-09T12:32:39.200598+00:00",
+          "played_at": null
+        }
+      ],
+      "insights": {
+        "source": "Локальная выборка; сортировка по дате игры, при её отсутствии — по времени импорта",
+        "sample_size": 1,
+        "minimum_matches": 10,
+        "observations": [],
+        "status": "insufficient",
+        "message": "Недостаточно данных для оценки аномальности: 1 из 10 матчей. Недостаточно истории для оценки стабильности."
+      },
+      "map_splits": []
+    },
+    "76561198324843075": {
+      "steam_id64": "76561198324843075",
+      "latest_nickname": "Trahun <3 V",
+      "summary": {
+        "matches": 1,
+        "kills": 2,
+        "deaths": 9,
+        "assists": 3,
+        "rounds_played": 9,
+        "kd": 0.222,
+        "adr": 47.44,
+        "adr_matches": 1,
+        "adr_rounds": 9,
+        "kr": 0.222,
+        "hs_percent": 100.0
+      },
+      "rolling": {
+        "matches": 1,
+        "kills": 2,
+        "deaths": 9,
+        "assists": 3,
+        "rounds_played": 9,
+        "kd": 0.222,
+        "adr": 47.44,
+        "adr_matches": 1,
+        "adr_rounds": 9,
+        "kr": 0.222,
+        "hs_percent": 100.0
+      },
+      "history": [
+        {
+          "steam_id64": "76561198324843075",
+          "nickname": "Trahun <3 V",
+          "team": "B",
+          "kills": 2,
+          "deaths": 9,
+          "assists": 3,
+          "hs_kills": 2,
+          "rounds_played": 9,
+          "effective_damage": 427.0,
+          "missing_reasons": [],
+          "kd": 0.222,
+          "hs_percent": 100.0,
+          "kr": 0.222,
+          "adr": 47.44,
+          "match_id": 1,
+          "map_name": "de_mirage",
+          "imported_at": "2026-10-09T12:32:39.200598+00:00",
+          "played_at": null
+        }
+      ],
+      "insights": {
+        "source": "Локальная выборка; сортировка по дате игры, при её отсутствии — по времени импорта",
+        "sample_size": 1,
+        "minimum_matches": 10,
+        "observations": [],
+        "status": "insufficient",
+        "message": "Недостаточно данных для оценки аномальности: 1 из 10 матчей. Недостаточно истории для оценки стабильности."
+      },
+      "map_splits": []
+    }
+  },
+  "matches": {
+    "1": {
+      "id": 1,
+      "file_sha256": "84a1a4191302bdd2a3bbb5a727842093744b1fb1a228aeec630369e44b622cb2",
+      "status": "ready",
+      "map_name": "de_mirage",
+      "played_at": null,
+      "imported_at": "2026-10-09T12:32:39.200598+00:00",
+      "team_scores": { "A": 8, "B": 2 },
+      "parser_version": "0.42.0",
+      "error": null,
+      "diagnostics": [
+        "SteamID берётся из replay; команды A/B обозначают стороны первого участия. Дата игры не восстанавливается.",
+        "ADR: изменение целочисленного HP. dmg_health может отличаться на 1 из-за округления; больший разрыв обнуляет достоверность ADR.",
+        "Поля player_death: assistedflash, assister_name, assister_steamid, assister_team_num, attacker_name, attacker_steamid, attacker_team_num, attackerblind, distance, dmg_armor, dmg_health, dominated, headshot, hitgroup, is_warmup_period, noreplay, noscope, penetrated, revenge, thrusmoke, tick, total_rounds_played, user_name, user_steamid, user_team_num, weapon, weapon_fauxitemid, weapon_itemid, weapon_originalowner_xuid, wipe",
+        "Поля player_hurt: armor, attacker_name, attacker_steamid, attacker_team_num, dmg_armor, dmg_health, health, hitgroup, is_warmup_period, tick, total_rounds_played, user_name, user_steamid, user_team_num, weapon",
+        "Итоговый счёт включает 10 раундов; для метрик подтверждено 9 полных раундов. Неполные раунды не входят в знаменатель ADR и K/R."
+      ],
+      "players": [
+        {
+          "steam_id64": "76561197964020430",
+          "nickname": "Подсосник blick'a",
+          "team": "A",
+          "kills": 11,
+          "deaths": 5,
+          "assists": 4,
+          "hs_kills": 4,
+          "rounds_played": 9,
+          "effective_damage": 1219.0,
+          "missing_reasons": [],
+          "kd": 2.2,
+          "hs_percent": 36.36,
+          "kr": 1.222,
+          "adr": 135.44
+        },
+        {
+          "steam_id64": "76561198265366770",
+          "nickname": "123",
+          "team": "A",
+          "kills": 11,
+          "deaths": 4,
+          "assists": 1,
+          "hs_kills": 8,
+          "rounds_played": 9,
+          "effective_damage": 1163.0,
+          "missing_reasons": [],
+          "kd": 2.75,
+          "hs_percent": 72.73,
+          "kr": 1.222,
+          "adr": 129.22
+        },
+        {
+          "steam_id64": "76561198244754626",
+          "nickname": "NIGHTSOUL",
+          "team": "A",
+          "kills": 10,
+          "deaths": 5,
+          "assists": 1,
+          "hs_kills": 6,
+          "rounds_played": 9,
+          "effective_damage": 954.0,
+          "missing_reasons": [],
+          "kd": 2.0,
+          "hs_percent": 60.0,
+          "kr": 1.111,
+          "adr": 106.0
+        },
+        {
+          "steam_id64": "76561198118803912",
+          "nickname": "Голова, глаза",
+          "team": "A",
+          "kills": 5,
+          "deaths": 7,
+          "assists": 2,
+          "hs_kills": 4,
+          "rounds_played": 9,
+          "effective_damage": 572.0,
+          "missing_reasons": [],
+          "kd": 0.714,
+          "hs_percent": 80.0,
+          "kr": 0.556,
+          "adr": 63.56
+        },
+        {
+          "steam_id64": "76561198202353993",
+          "nickname": "IMI Negev",
+          "team": "A",
+          "kills": 4,
+          "deaths": 2,
+          "assists": 0,
+          "hs_kills": 4,
+          "rounds_played": 9,
+          "effective_damage": 315.0,
+          "missing_reasons": [],
+          "kd": 2.0,
+          "hs_percent": 100.0,
+          "kr": 0.444,
+          "adr": 35.0
+        },
+        {
+          "steam_id64": "76561198258044111",
+          "nickname": "-ExΩtiC-",
+          "team": "B",
+          "kills": 8,
+          "deaths": 8,
+          "assists": 1,
+          "hs_kills": 2,
+          "rounds_played": 9,
+          "effective_damage": 783.0,
+          "missing_reasons": [],
+          "kd": 1.0,
+          "hs_percent": 25.0,
+          "kr": 0.889,
+          "adr": 87.0
+        },
+        {
+          "steam_id64": "76561198194694750",
+          "nickname": "Dog",
+          "team": "B",
+          "kills": 6,
+          "deaths": 7,
+          "assists": 2,
+          "hs_kills": 1,
+          "rounds_played": 9,
+          "effective_damage": 754.0,
+          "missing_reasons": [],
+          "kd": 0.857,
+          "hs_percent": 16.67,
+          "kr": 0.667,
+          "adr": 83.78
+        },
+        {
+          "steam_id64": "76561198280975787",
+          "nickname": "povergo",
+          "team": "B",
+          "kills": 4,
+          "deaths": 9,
+          "assists": 0,
+          "hs_kills": 2,
+          "rounds_played": 9,
+          "effective_damage": 344.0,
+          "missing_reasons": [],
+          "kd": 0.444,
+          "hs_percent": 50.0,
+          "kr": 0.444,
+          "adr": 38.22
+        },
+        {
+          "steam_id64": "76561198073049527",
+          "nickname": "miu miu",
+          "team": "B",
+          "kills": 3,
+          "deaths": 8,
+          "assists": 3,
+          "hs_kills": 2,
+          "rounds_played": 9,
+          "effective_damage": 529.0,
+          "missing_reasons": [],
+          "kd": 0.375,
+          "hs_percent": 66.67,
+          "kr": 0.333,
+          "adr": 58.78
+        },
+        {
+          "steam_id64": "76561198324843075",
+          "nickname": "Trahun <3 V",
+          "team": "B",
+          "kills": 2,
+          "deaths": 9,
+          "assists": 3,
+          "hs_kills": 2,
+          "rounds_played": 9,
+          "effective_damage": 427.0,
+          "missing_reasons": [],
+          "kd": 0.222,
+          "hs_percent": 100.0,
+          "kr": 0.222,
+          "adr": 47.44
+        }
+      ],
+      "rounds": [
+        {
+          "number": 1,
+          "start_tick": 1761,
+          "end_tick": 9418,
+          "result_tick": 8971,
+          "boundary_source": "round_officially_ended",
+          "winning_side": 2,
+          "source_round": 0,
+          "round_counter_verified": true,
+          "players": {
+            "76561198265366770": {
+              "side": 2,
+              "kills": 1,
+              "deaths": 0,
+              "assists": 0,
+              "hs_kills": 1,
+              "effective_damage": 100.0
+            },
+            "76561198324843075": {
+              "side": 3,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 1,
+              "hs_kills": 0,
+              "effective_damage": 28.0
+            },
+            "76561198118803912": {
+              "side": 2,
+              "kills": 1,
+              "deaths": 1,
+              "assists": 1,
+              "hs_kills": 1,
+              "effective_damage": 185.0
+            },
+            "76561198244754626": {
+              "side": 2,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 0
+            },
+            "76561198194694750": {
+              "side": 3,
+              "kills": 1,
+              "deaths": 1,
+              "assists": 1,
+              "hs_kills": 0,
+              "effective_damage": 194.0
+            },
+            "76561198073049527": {
+              "side": 3,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 0
+            },
+            "76561198258044111": {
+              "side": 3,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 33.0
+            },
+            "76561197964020430": {
+              "side": 2,
+              "kills": 1,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 1,
+              "effective_damage": 100.0
+            },
+            "76561198280975787": {
+              "side": 3,
+              "kills": 2,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 1,
+              "effective_damage": 107.0
+            },
+            "76561198202353993": {
+              "side": 2,
+              "kills": 2,
+              "deaths": 0,
+              "assists": 0,
+              "hs_kills": 2,
+              "effective_damage": 115.0
+            }
+          }
+        },
+        {
+          "number": 2,
+          "start_tick": 10699,
+          "end_tick": 15679,
+          "result_tick": 15232,
+          "boundary_source": "round_officially_ended",
+          "winning_side": 3,
+          "source_round": 1,
+          "round_counter_verified": true,
+          "players": {
+            "76561198265366770": {
+              "side": 2,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 1,
+              "hs_kills": 0,
+              "effective_damage": 61.0
+            },
+            "76561198324843075": {
+              "side": 3,
+              "kills": 1,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 1,
+              "effective_damage": 83.0
+            },
+            "76561198118803912": {
+              "side": 2,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 0
+            },
+            "76561198244754626": {
+              "side": 2,
+              "kills": 1,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 1,
+              "effective_damage": 90.0
+            },
+            "76561198194694750": {
+              "side": 3,
+              "kills": 2,
+              "deaths": 0,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 145.0
+            },
+            "76561198073049527": {
+              "side": 3,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 0
+            },
+            "76561198258044111": {
+              "side": 3,
+              "kills": 1,
+              "deaths": 0,
+              "assists": 1,
+              "hs_kills": 0,
+              "effective_damage": 172.0
+            },
+            "76561197964020430": {
+              "side": 2,
+              "kills": 2,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 1,
+              "effective_damage": 139.0
+            },
+            "76561198280975787": {
+              "side": 3,
+              "kills": 1,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 1,
+              "effective_damage": 100.0
+            },
+            "76561198202353993": {
+              "side": 2,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 0
+            }
+          }
+        },
+        {
+          "number": 3,
+          "start_tick": 16960,
+          "end_tick": 21904,
+          "result_tick": 21457,
+          "boundary_source": "round_officially_ended",
+          "winning_side": 2,
+          "source_round": 2,
+          "round_counter_verified": true,
+          "players": {
+            "76561198265366770": {
+              "side": 2,
+              "kills": 2,
+              "deaths": 0,
+              "assists": 0,
+              "hs_kills": 2,
+              "effective_damage": 200.0
+            },
+            "76561198324843075": {
+              "side": 3,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 60.0
+            },
+            "76561198118803912": {
+              "side": 2,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 0
+            },
+            "76561198244754626": {
+              "side": 2,
+              "kills": 1,
+              "deaths": 0,
+              "assists": 0,
+              "hs_kills": 1,
+              "effective_damage": 100.0
+            },
+            "76561198194694750": {
+              "side": 3,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 99.0
+            },
+            "76561198073049527": {
+              "side": 3,
+              "kills": 1,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 100.0
+            },
+            "76561198258044111": {
+              "side": 3,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 26.0
+            },
+            "76561197964020430": {
+              "side": 2,
+              "kills": 1,
+              "deaths": 0,
+              "assists": 0,
+              "hs_kills": 1,
+              "effective_damage": 100.0
+            },
+            "76561198280975787": {
+              "side": 3,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 0
+            },
+            "76561198202353993": {
+              "side": 2,
+              "kills": 1,
+              "deaths": 0,
+              "assists": 0,
+              "hs_kills": 1,
+              "effective_damage": 100.0
+            }
+          }
+        },
+        {
+          "number": 4,
+          "start_tick": 23185,
+          "end_tick": 26511,
+          "result_tick": 26064,
+          "boundary_source": "round_officially_ended",
+          "winning_side": 2,
+          "source_round": 3,
+          "round_counter_verified": true,
+          "players": {
+            "76561198265366770": {
+              "side": 2,
+              "kills": 2,
+              "deaths": 0,
+              "assists": 0,
+              "hs_kills": 1,
+              "effective_damage": 200.0
+            },
+            "76561198324843075": {
+              "side": 3,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 0
+            },
+            "76561198118803912": {
+              "side": 2,
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 0
+            },
+            "76561198244754626": {
+              "side": 2,
+              "kills": 2,
+              "deaths": 0,
+              "assists": 0,
+              "hs_kills": 1,
+              "effective_damage": 200.0
+            },
+            "76561198194694750": {
+              "side": 3,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 75.0
+            },
+            "76561198073049527": {
+              "side": 3,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 83.0
+            },
+            "76561198258044111": {
+              "side": 3,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 49.0
+            },
+            "76561197964020430": {
+              "side": 2,
+              "kills": 1,
+              "deaths": 0,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 100.0
+            },
+            "76561198280975787": {
+              "side": 3,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 0
+            },
+            "76561198202353993": {
+              "side": 2,
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 0
+            }
+          }
+        },
+        {
+          "number": 5,
+          "start_tick": 27792,
+          "end_tick": 31644,
+          "result_tick": 31197,
+          "boundary_source": "round_officially_ended",
+          "winning_side": 3,
+          "source_round": 4,
+          "round_counter_verified": true,
+          "players": {
+            "76561198265366770": {
+              "side": 2,
+              "kills": 2,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 1,
+              "effective_damage": 188.0
+            },
+            "76561198324843075": {
+              "side": 3,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 41.0
+            },
+            "76561198118803912": {
+              "side": 2,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 44.0
+            },
+            "76561198244754626": {
+              "side": 2,
+              "kills": 2,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 1,
+              "effective_damage": 150.0
+            },
+            "76561198194694750": {
+              "side": 3,
+              "kills": 2,
+              "deaths": 0,
+              "assists": 1,
+              "hs_kills": 0,
+              "effective_damage": 153.0
+            },
+            "76561198073049527": {
+              "side": 3,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 1,
+              "hs_kills": 0,
+              "effective_damage": 76.0
+            },
+            "76561198258044111": {
+              "side": 3,
+              "kills": 2,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 130.0
+            },
+            "76561197964020430": {
+              "side": 2,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 2,
+              "hs_kills": 0,
+              "effective_damage": 108.0
+            },
+            "76561198280975787": {
+              "side": 3,
+              "kills": 1,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 100.0
+            },
+            "76561198202353993": {
+              "side": 2,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 0
+            }
+          }
+        },
+        {
+          "number": 6,
+          "start_tick": 32925,
+          "end_tick": 39267,
+          "result_tick": 38820,
+          "boundary_source": "round_officially_ended",
+          "winning_side": 2,
+          "source_round": 5,
+          "round_counter_verified": true,
+          "players": {
+            "76561198265366770": {
+              "side": 2,
+              "kills": 1,
+              "deaths": 0,
+              "assists": 0,
+              "hs_kills": 1,
+              "effective_damage": 101.0
+            },
+            "76561198324843075": {
+              "side": 3,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 0
+            },
+            "76561198118803912": {
+              "side": 2,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 1,
+              "hs_kills": 0,
+              "effective_damage": 48.0
+            },
+            "76561198244754626": {
+              "side": 2,
+              "kills": 1,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 75.0
+            },
+            "76561198194694750": {
+              "side": 3,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 7.0
+            },
+            "76561198073049527": {
+              "side": 3,
+              "kills": 1,
+              "deaths": 0,
+              "assists": 1,
+              "hs_kills": 1,
+              "effective_damage": 74.0
+            },
+            "76561198258044111": {
+              "side": 3,
+              "kills": 2,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 168.0
+            },
+            "76561197964020430": {
+              "side": 2,
+              "kills": 2,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 219.0
+            },
+            "76561198280975787": {
+              "side": 3,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 0
+            },
+            "76561198202353993": {
+              "side": 2,
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 0
+            }
+          }
+        },
+        {
+          "number": 7,
+          "start_tick": 40548,
+          "end_tick": 45539,
+          "result_tick": 45092,
+          "boundary_source": "round_officially_ended",
+          "winning_side": 2,
+          "source_round": 6,
+          "round_counter_verified": true,
+          "players": {
+            "76561198265366770": {
+              "side": 2,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 28.0
+            },
+            "76561198324843075": {
+              "side": 3,
+              "kills": 1,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 1,
+              "effective_damage": 100.0
+            },
+            "76561198118803912": {
+              "side": 2,
+              "kills": 1,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 21.0
+            },
+            "76561198244754626": {
+              "side": 2,
+              "kills": 1,
+              "deaths": 1,
+              "assists": 1,
+              "hs_kills": 1,
+              "effective_damage": 127.0
+            },
+            "76561198194694750": {
+              "side": 3,
+              "kills": 1,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 1,
+              "effective_damage": 62.0
+            },
+            "76561198073049527": {
+              "side": 3,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 1,
+              "hs_kills": 0,
+              "effective_damage": 135.0
+            },
+            "76561198258044111": {
+              "side": 3,
+              "kills": 1,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 1,
+              "effective_damage": 100.0
+            },
+            "76561197964020430": {
+              "side": 2,
+              "kills": 3,
+              "deaths": 0,
+              "assists": 1,
+              "hs_kills": 1,
+              "effective_damage": 324.0
+            },
+            "76561198280975787": {
+              "side": 3,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 37.0
+            },
+            "76561198202353993": {
+              "side": 2,
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 0
+            }
+          }
+        },
+        {
+          "number": 8,
+          "start_tick": 46820,
+          "end_tick": 52165,
+          "result_tick": 51718,
+          "boundary_source": "round_officially_ended",
+          "winning_side": 2,
+          "source_round": 7,
+          "round_counter_verified": true,
+          "players": {
+            "76561198265366770": {
+              "side": 2,
+              "kills": 2,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 2,
+              "effective_damage": 216.0
+            },
+            "76561198324843075": {
+              "side": 3,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 1,
+              "hs_kills": 0,
+              "effective_damage": 42.0
+            },
+            "76561198118803912": {
+              "side": 2,
+              "kills": 1,
+              "deaths": 0,
+              "assists": 0,
+              "hs_kills": 1,
+              "effective_damage": 85.0
+            },
+            "76561198244754626": {
+              "side": 2,
+              "kills": 1,
+              "deaths": 0,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 112.0
+            },
+            "76561198194694750": {
+              "side": 3,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 19.0
+            },
+            "76561198073049527": {
+              "side": 3,
+              "kills": 1,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 1,
+              "effective_damage": 39.0
+            },
+            "76561198258044111": {
+              "side": 3,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 0
+            },
+            "76561197964020430": {
+              "side": 2,
+              "kills": 1,
+              "deaths": 0,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 87.0
+            },
+            "76561198280975787": {
+              "side": 3,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 0
+            },
+            "76561198202353993": {
+              "side": 2,
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 0
+            }
+          }
+        },
+        {
+          "number": 9,
+          "start_tick": 53446,
+          "end_tick": 56406,
+          "result_tick": 55959,
+          "boundary_source": "round_officially_ended",
+          "winning_side": 2,
+          "source_round": 8,
+          "round_counter_verified": true,
+          "players": {
+            "76561198265366770": {
+              "side": 2,
+              "kills": 1,
+              "deaths": 0,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 69.0
+            },
+            "76561198324843075": {
+              "side": 3,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 1,
+              "hs_kills": 0,
+              "effective_damage": 73.0
+            },
+            "76561198118803912": {
+              "side": 2,
+              "kills": 2,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 2,
+              "effective_damage": 189.0
+            },
+            "76561198244754626": {
+              "side": 2,
+              "kills": 1,
+              "deaths": 0,
+              "assists": 0,
+              "hs_kills": 1,
+              "effective_damage": 100.0
+            },
+            "76561198194694750": {
+              "side": 3,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 0
+            },
+            "76561198073049527": {
+              "side": 3,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 22.0
+            },
+            "76561198258044111": {
+              "side": 3,
+              "kills": 2,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 1,
+              "effective_damage": 105.0
+            },
+            "76561197964020430": {
+              "side": 2,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 1,
+              "hs_kills": 0,
+              "effective_damage": 42.0
+            },
+            "76561198280975787": {
+              "side": 3,
+              "kills": 0,
+              "deaths": 1,
+              "assists": 0,
+              "hs_kills": 0,
+              "effective_damage": 0
+            },
+            "76561198202353993": {
+              "side": 2,
+              "kills": 1,
+              "deaths": 0,
+              "assists": 0,
+              "hs_kills": 1,
+              "effective_damage": 100.0
+            }
+          }
+        }
+      ],
+      "player_count": 10,
+      "round_count": 9
+    }
+  },
+  "dashboards": {
+    "": {
+      "match_count": 1,
+      "player_count": 10,
+      "queued_count": 0,
+      "recent_matches": [
+        {
+          "id": 1,
+          "file_sha256": "84a1a4191302bdd2a3bbb5a727842093744b1fb1a228aeec630369e44b622cb2",
+          "status": "ready",
+          "map_name": "de_mirage",
+          "played_at": null,
+          "imported_at": "2026-10-09T12:32:39.200598+00:00",
+          "team_scores": { "A": 8, "B": 2 },
+          "parser_version": "0.42.0",
+          "error": null,
+          "diagnostics": [
+            "SteamID берётся из replay; команды A/B обозначают стороны первого участия. Дата игры не восстанавливается.",
+            "ADR: изменение целочисленного HP. dmg_health может отличаться на 1 из-за округления; больший разрыв обнуляет достоверность ADR.",
+            "Поля player_death: assistedflash, assister_name, assister_steamid, assister_team_num, attacker_name, attacker_steamid, attacker_team_num, attackerblind, distance, dmg_armor, dmg_health, dominated, headshot, hitgroup, is_warmup_period, noreplay, noscope, penetrated, revenge, thrusmoke, tick, total_rounds_played, user_name, user_steamid, user_team_num, weapon, weapon_fauxitemid, weapon_itemid, weapon_originalowner_xuid, wipe",
+            "Поля player_hurt: armor, attacker_name, attacker_steamid, attacker_team_num, dmg_armor, dmg_health, health, hitgroup, is_warmup_period, tick, total_rounds_played, user_name, user_steamid, user_team_num, weapon",
+            "Итоговый счёт включает 10 раундов; для метрик подтверждено 9 полных раундов. Неполные раунды не входят в знаменатель ADR и K/R."
+          ],
+          "player_count": 10,
+          "round_count": 9,
+          "personal_stats": null,
+          "result": null
+        }
+      ],
+      "personal": null,
+      "profile": null,
+      "cs2": null,
+      "settings": { "steam_id64": "", "compact": false, "ai_enabled": false }
+    },
+    "76561197964020430": {
+      "match_count": 1,
+      "player_count": 10,
+      "queued_count": 0,
+      "recent_matches": [
+        {
+          "id": 1,
+          "file_sha256": "84a1a4191302bdd2a3bbb5a727842093744b1fb1a228aeec630369e44b622cb2",
+          "status": "ready",
+          "map_name": "de_mirage",
+          "played_at": null,
+          "imported_at": "2026-10-09T12:32:39.200598+00:00",
+          "team_scores": { "A": 8, "B": 2 },
+          "parser_version": "0.42.0",
+          "error": null,
+          "diagnostics": [
+            "SteamID берётся из replay; команды A/B обозначают стороны первого участия. Дата игры не восстанавливается.",
+            "ADR: изменение целочисленного HP. dmg_health может отличаться на 1 из-за округления; больший разрыв обнуляет достоверность ADR.",
+            "Поля player_death: assistedflash, assister_name, assister_steamid, assister_team_num, attacker_name, attacker_steamid, attacker_team_num, attackerblind, distance, dmg_armor, dmg_health, dominated, headshot, hitgroup, is_warmup_period, noreplay, noscope, penetrated, revenge, thrusmoke, tick, total_rounds_played, user_name, user_steamid, user_team_num, weapon, weapon_fauxitemid, weapon_itemid, weapon_originalowner_xuid, wipe",
+            "Поля player_hurt: armor, attacker_name, attacker_steamid, attacker_team_num, dmg_armor, dmg_health, health, hitgroup, is_warmup_period, tick, total_rounds_played, user_name, user_steamid, user_team_num, weapon",
+            "Итоговый счёт включает 10 раундов; для метрик подтверждено 9 полных раундов. Неполные раунды не входят в знаменатель ADR и K/R."
+          ],
+          "player_count": 10,
+          "round_count": 9,
+          "personal_stats": {
+            "steam_id64": "76561197964020430",
+            "nickname": "Подсосник blick'a",
+            "team": "A",
+            "kills": 11,
+            "deaths": 5,
+            "assists": 4,
+            "hs_kills": 4,
+            "rounds_played": 9,
+            "effective_damage": 1219.0,
+            "missing_reasons": [],
+            "kd": 2.2,
+            "hs_percent": 36.36,
+            "kr": 1.222,
+            "adr": 135.44
+          },
+          "result": "win"
+        }
+      ],
+      "personal": {
+        "steam_id64": "76561197964020430",
+        "latest_nickname": "Подсосник blick'a",
+        "summary": {
+          "matches": 1,
+          "kills": 11,
+          "deaths": 5,
+          "assists": 4,
+          "rounds_played": 9,
+          "kd": 2.2,
+          "adr": 135.44,
+          "adr_matches": 1,
+          "adr_rounds": 9,
+          "kr": 1.222,
+          "hs_percent": 36.36
+        },
+        "rolling": {
+          "matches": 1,
+          "kills": 11,
+          "deaths": 5,
+          "assists": 4,
+          "rounds_played": 9,
+          "kd": 2.2,
+          "adr": 135.44,
+          "adr_matches": 1,
+          "adr_rounds": 9,
+          "kr": 1.222,
+          "hs_percent": 36.36
+        },
+        "history": [
+          {
+            "steam_id64": "76561197964020430",
+            "nickname": "Подсосник blick'a",
+            "team": "A",
+            "kills": 11,
+            "deaths": 5,
+            "assists": 4,
+            "hs_kills": 4,
+            "rounds_played": 9,
+            "effective_damage": 1219.0,
+            "missing_reasons": [],
+            "kd": 2.2,
+            "hs_percent": 36.36,
+            "kr": 1.222,
+            "adr": 135.44,
+            "match_id": 1,
+            "map_name": "de_mirage",
+            "imported_at": "2026-10-09T12:32:39.200598+00:00",
+            "played_at": null
+          }
+        ],
+        "insights": {
+          "source": "Локальная выборка; сортировка по дате игры, при её отсутствии — по времени импорта",
+          "sample_size": 1,
+          "minimum_matches": 10,
+          "observations": [],
+          "status": "insufficient",
+          "message": "Недостаточно данных для оценки аномальности: 1 из 10 матчей. Недостаточно истории для оценки стабильности."
+        },
+        "map_splits": []
+      },
+      "profile": null,
+      "cs2": null,
+      "settings": { "steam_id64": "76561197964020430", "compact": false, "ai_enabled": false }
+    },
+    "76561198073049527": {
+      "match_count": 1,
+      "player_count": 10,
+      "queued_count": 0,
+      "recent_matches": [
+        {
+          "id": 1,
+          "file_sha256": "84a1a4191302bdd2a3bbb5a727842093744b1fb1a228aeec630369e44b622cb2",
+          "status": "ready",
+          "map_name": "de_mirage",
+          "played_at": null,
+          "imported_at": "2026-10-09T12:32:39.200598+00:00",
+          "team_scores": { "A": 8, "B": 2 },
+          "parser_version": "0.42.0",
+          "error": null,
+          "diagnostics": [
+            "SteamID берётся из replay; команды A/B обозначают стороны первого участия. Дата игры не восстанавливается.",
+            "ADR: изменение целочисленного HP. dmg_health может отличаться на 1 из-за округления; больший разрыв обнуляет достоверность ADR.",
+            "Поля player_death: assistedflash, assister_name, assister_steamid, assister_team_num, attacker_name, attacker_steamid, attacker_team_num, attackerblind, distance, dmg_armor, dmg_health, dominated, headshot, hitgroup, is_warmup_period, noreplay, noscope, penetrated, revenge, thrusmoke, tick, total_rounds_played, user_name, user_steamid, user_team_num, weapon, weapon_fauxitemid, weapon_itemid, weapon_originalowner_xuid, wipe",
+            "Поля player_hurt: armor, attacker_name, attacker_steamid, attacker_team_num, dmg_armor, dmg_health, health, hitgroup, is_warmup_period, tick, total_rounds_played, user_name, user_steamid, user_team_num, weapon",
+            "Итоговый счёт включает 10 раундов; для метрик подтверждено 9 полных раундов. Неполные раунды не входят в знаменатель ADR и K/R."
+          ],
+          "player_count": 10,
+          "round_count": 9,
+          "personal_stats": {
+            "steam_id64": "76561198073049527",
+            "nickname": "miu miu",
+            "team": "B",
+            "kills": 3,
+            "deaths": 8,
+            "assists": 3,
+            "hs_kills": 2,
+            "rounds_played": 9,
+            "effective_damage": 529.0,
+            "missing_reasons": [],
+            "kd": 0.375,
+            "hs_percent": 66.67,
+            "kr": 0.333,
+            "adr": 58.78
+          },
+          "result": "loss"
+        }
+      ],
+      "personal": {
+        "steam_id64": "76561198073049527",
+        "latest_nickname": "miu miu",
+        "summary": {
+          "matches": 1,
+          "kills": 3,
+          "deaths": 8,
+          "assists": 3,
+          "rounds_played": 9,
+          "kd": 0.375,
+          "adr": 58.78,
+          "adr_matches": 1,
+          "adr_rounds": 9,
+          "kr": 0.333,
+          "hs_percent": 66.67
+        },
+        "rolling": {
+          "matches": 1,
+          "kills": 3,
+          "deaths": 8,
+          "assists": 3,
+          "rounds_played": 9,
+          "kd": 0.375,
+          "adr": 58.78,
+          "adr_matches": 1,
+          "adr_rounds": 9,
+          "kr": 0.333,
+          "hs_percent": 66.67
+        },
+        "history": [
+          {
+            "steam_id64": "76561198073049527",
+            "nickname": "miu miu",
+            "team": "B",
+            "kills": 3,
+            "deaths": 8,
+            "assists": 3,
+            "hs_kills": 2,
+            "rounds_played": 9,
+            "effective_damage": 529.0,
+            "missing_reasons": [],
+            "kd": 0.375,
+            "hs_percent": 66.67,
+            "kr": 0.333,
+            "adr": 58.78,
+            "match_id": 1,
+            "map_name": "de_mirage",
+            "imported_at": "2026-10-09T12:32:39.200598+00:00",
+            "played_at": null
+          }
+        ],
+        "insights": {
+          "source": "Локальная выборка; сортировка по дате игры, при её отсутствии — по времени импорта",
+          "sample_size": 1,
+          "minimum_matches": 10,
+          "observations": [],
+          "status": "insufficient",
+          "message": "Недостаточно данных для оценки аномальности: 1 из 10 матчей. Недостаточно истории для оценки стабильности."
+        },
+        "map_splits": []
+      },
+      "profile": null,
+      "cs2": null,
+      "settings": { "steam_id64": "76561198073049527", "compact": false, "ai_enabled": false }
+    },
+    "76561198118803912": {
+      "match_count": 1,
+      "player_count": 10,
+      "queued_count": 0,
+      "recent_matches": [
+        {
+          "id": 1,
+          "file_sha256": "84a1a4191302bdd2a3bbb5a727842093744b1fb1a228aeec630369e44b622cb2",
+          "status": "ready",
+          "map_name": "de_mirage",
+          "played_at": null,
+          "imported_at": "2026-10-09T12:32:39.200598+00:00",
+          "team_scores": { "A": 8, "B": 2 },
+          "parser_version": "0.42.0",
+          "error": null,
+          "diagnostics": [
+            "SteamID берётся из replay; команды A/B обозначают стороны первого участия. Дата игры не восстанавливается.",
+            "ADR: изменение целочисленного HP. dmg_health может отличаться на 1 из-за округления; больший разрыв обнуляет достоверность ADR.",
+            "Поля player_death: assistedflash, assister_name, assister_steamid, assister_team_num, attacker_name, attacker_steamid, attacker_team_num, attackerblind, distance, dmg_armor, dmg_health, dominated, headshot, hitgroup, is_warmup_period, noreplay, noscope, penetrated, revenge, thrusmoke, tick, total_rounds_played, user_name, user_steamid, user_team_num, weapon, weapon_fauxitemid, weapon_itemid, weapon_originalowner_xuid, wipe",
+            "Поля player_hurt: armor, attacker_name, attacker_steamid, attacker_team_num, dmg_armor, dmg_health, health, hitgroup, is_warmup_period, tick, total_rounds_played, user_name, user_steamid, user_team_num, weapon",
+            "Итоговый счёт включает 10 раундов; для метрик подтверждено 9 полных раундов. Неполные раунды не входят в знаменатель ADR и K/R."
+          ],
+          "player_count": 10,
+          "round_count": 9,
+          "personal_stats": {
+            "steam_id64": "76561198118803912",
+            "nickname": "Голова, глаза",
+            "team": "A",
+            "kills": 5,
+            "deaths": 7,
+            "assists": 2,
+            "hs_kills": 4,
+            "rounds_played": 9,
+            "effective_damage": 572.0,
+            "missing_reasons": [],
+            "kd": 0.714,
+            "hs_percent": 80.0,
+            "kr": 0.556,
+            "adr": 63.56
+          },
+          "result": "win"
+        }
+      ],
+      "personal": {
+        "steam_id64": "76561198118803912",
+        "latest_nickname": "Голова, глаза",
+        "summary": {
+          "matches": 1,
+          "kills": 5,
+          "deaths": 7,
+          "assists": 2,
+          "rounds_played": 9,
+          "kd": 0.714,
+          "adr": 63.56,
+          "adr_matches": 1,
+          "adr_rounds": 9,
+          "kr": 0.556,
+          "hs_percent": 80.0
+        },
+        "rolling": {
+          "matches": 1,
+          "kills": 5,
+          "deaths": 7,
+          "assists": 2,
+          "rounds_played": 9,
+          "kd": 0.714,
+          "adr": 63.56,
+          "adr_matches": 1,
+          "adr_rounds": 9,
+          "kr": 0.556,
+          "hs_percent": 80.0
+        },
+        "history": [
+          {
+            "steam_id64": "76561198118803912",
+            "nickname": "Голова, глаза",
+            "team": "A",
+            "kills": 5,
+            "deaths": 7,
+            "assists": 2,
+            "hs_kills": 4,
+            "rounds_played": 9,
+            "effective_damage": 572.0,
+            "missing_reasons": [],
+            "kd": 0.714,
+            "hs_percent": 80.0,
+            "kr": 0.556,
+            "adr": 63.56,
+            "match_id": 1,
+            "map_name": "de_mirage",
+            "imported_at": "2026-10-09T12:32:39.200598+00:00",
+            "played_at": null
+          }
+        ],
+        "insights": {
+          "source": "Локальная выборка; сортировка по дате игры, при её отсутствии — по времени импорта",
+          "sample_size": 1,
+          "minimum_matches": 10,
+          "observations": [],
+          "status": "insufficient",
+          "message": "Недостаточно данных для оценки аномальности: 1 из 10 матчей. Недостаточно истории для оценки стабильности."
+        },
+        "map_splits": []
+      },
+      "profile": null,
+      "cs2": null,
+      "settings": { "steam_id64": "76561198118803912", "compact": false, "ai_enabled": false }
+    },
+    "76561198194694750": {
+      "match_count": 1,
+      "player_count": 10,
+      "queued_count": 0,
+      "recent_matches": [
+        {
+          "id": 1,
+          "file_sha256": "84a1a4191302bdd2a3bbb5a727842093744b1fb1a228aeec630369e44b622cb2",
+          "status": "ready",
+          "map_name": "de_mirage",
+          "played_at": null,
+          "imported_at": "2026-10-09T12:32:39.200598+00:00",
+          "team_scores": { "A": 8, "B": 2 },
+          "parser_version": "0.42.0",
+          "error": null,
+          "diagnostics": [
+            "SteamID берётся из replay; команды A/B обозначают стороны первого участия. Дата игры не восстанавливается.",
+            "ADR: изменение целочисленного HP. dmg_health может отличаться на 1 из-за округления; больший разрыв обнуляет достоверность ADR.",
+            "Поля player_death: assistedflash, assister_name, assister_steamid, assister_team_num, attacker_name, attacker_steamid, attacker_team_num, attackerblind, distance, dmg_armor, dmg_health, dominated, headshot, hitgroup, is_warmup_period, noreplay, noscope, penetrated, revenge, thrusmoke, tick, total_rounds_played, user_name, user_steamid, user_team_num, weapon, weapon_fauxitemid, weapon_itemid, weapon_originalowner_xuid, wipe",
+            "Поля player_hurt: armor, attacker_name, attacker_steamid, attacker_team_num, dmg_armor, dmg_health, health, hitgroup, is_warmup_period, tick, total_rounds_played, user_name, user_steamid, user_team_num, weapon",
+            "Итоговый счёт включает 10 раундов; для метрик подтверждено 9 полных раундов. Неполные раунды не входят в знаменатель ADR и K/R."
+          ],
+          "player_count": 10,
+          "round_count": 9,
+          "personal_stats": {
+            "steam_id64": "76561198194694750",
+            "nickname": "Dog",
+            "team": "B",
+            "kills": 6,
+            "deaths": 7,
+            "assists": 2,
+            "hs_kills": 1,
+            "rounds_played": 9,
+            "effective_damage": 754.0,
+            "missing_reasons": [],
+            "kd": 0.857,
+            "hs_percent": 16.67,
+            "kr": 0.667,
+            "adr": 83.78
+          },
+          "result": "loss"
+        }
+      ],
+      "personal": {
+        "steam_id64": "76561198194694750",
+        "latest_nickname": "Dog",
+        "summary": {
+          "matches": 1,
+          "kills": 6,
+          "deaths": 7,
+          "assists": 2,
+          "rounds_played": 9,
+          "kd": 0.857,
+          "adr": 83.78,
+          "adr_matches": 1,
+          "adr_rounds": 9,
+          "kr": 0.667,
+          "hs_percent": 16.67
+        },
+        "rolling": {
+          "matches": 1,
+          "kills": 6,
+          "deaths": 7,
+          "assists": 2,
+          "rounds_played": 9,
+          "kd": 0.857,
+          "adr": 83.78,
+          "adr_matches": 1,
+          "adr_rounds": 9,
+          "kr": 0.667,
+          "hs_percent": 16.67
+        },
+        "history": [
+          {
+            "steam_id64": "76561198194694750",
+            "nickname": "Dog",
+            "team": "B",
+            "kills": 6,
+            "deaths": 7,
+            "assists": 2,
+            "hs_kills": 1,
+            "rounds_played": 9,
+            "effective_damage": 754.0,
+            "missing_reasons": [],
+            "kd": 0.857,
+            "hs_percent": 16.67,
+            "kr": 0.667,
+            "adr": 83.78,
+            "match_id": 1,
+            "map_name": "de_mirage",
+            "imported_at": "2026-10-09T12:32:39.200598+00:00",
+            "played_at": null
+          }
+        ],
+        "insights": {
+          "source": "Локальная выборка; сортировка по дате игры, при её отсутствии — по времени импорта",
+          "sample_size": 1,
+          "minimum_matches": 10,
+          "observations": [],
+          "status": "insufficient",
+          "message": "Недостаточно данных для оценки аномальности: 1 из 10 матчей. Недостаточно истории для оценки стабильности."
+        },
+        "map_splits": []
+      },
+      "profile": null,
+      "cs2": null,
+      "settings": { "steam_id64": "76561198194694750", "compact": false, "ai_enabled": false }
+    },
+    "76561198202353993": {
+      "match_count": 1,
+      "player_count": 10,
+      "queued_count": 0,
+      "recent_matches": [
+        {
+          "id": 1,
+          "file_sha256": "84a1a4191302bdd2a3bbb5a727842093744b1fb1a228aeec630369e44b622cb2",
+          "status": "ready",
+          "map_name": "de_mirage",
+          "played_at": null,
+          "imported_at": "2026-10-09T12:32:39.200598+00:00",
+          "team_scores": { "A": 8, "B": 2 },
+          "parser_version": "0.42.0",
+          "error": null,
+          "diagnostics": [
+            "SteamID берётся из replay; команды A/B обозначают стороны первого участия. Дата игры не восстанавливается.",
+            "ADR: изменение целочисленного HP. dmg_health может отличаться на 1 из-за округления; больший разрыв обнуляет достоверность ADR.",
+            "Поля player_death: assistedflash, assister_name, assister_steamid, assister_team_num, attacker_name, attacker_steamid, attacker_team_num, attackerblind, distance, dmg_armor, dmg_health, dominated, headshot, hitgroup, is_warmup_period, noreplay, noscope, penetrated, revenge, thrusmoke, tick, total_rounds_played, user_name, user_steamid, user_team_num, weapon, weapon_fauxitemid, weapon_itemid, weapon_originalowner_xuid, wipe",
+            "Поля player_hurt: armor, attacker_name, attacker_steamid, attacker_team_num, dmg_armor, dmg_health, health, hitgroup, is_warmup_period, tick, total_rounds_played, user_name, user_steamid, user_team_num, weapon",
+            "Итоговый счёт включает 10 раундов; для метрик подтверждено 9 полных раундов. Неполные раунды не входят в знаменатель ADR и K/R."
+          ],
+          "player_count": 10,
+          "round_count": 9,
+          "personal_stats": {
+            "steam_id64": "76561198202353993",
+            "nickname": "IMI Negev",
+            "team": "A",
+            "kills": 4,
+            "deaths": 2,
+            "assists": 0,
+            "hs_kills": 4,
+            "rounds_played": 9,
+            "effective_damage": 315.0,
+            "missing_reasons": [],
+            "kd": 2.0,
+            "hs_percent": 100.0,
+            "kr": 0.444,
+            "adr": 35.0
+          },
+          "result": "win"
+        }
+      ],
+      "personal": {
+        "steam_id64": "76561198202353993",
+        "latest_nickname": "IMI Negev",
+        "summary": {
+          "matches": 1,
+          "kills": 4,
+          "deaths": 2,
+          "assists": 0,
+          "rounds_played": 9,
+          "kd": 2.0,
+          "adr": 35.0,
+          "adr_matches": 1,
+          "adr_rounds": 9,
+          "kr": 0.444,
+          "hs_percent": 100.0
+        },
+        "rolling": {
+          "matches": 1,
+          "kills": 4,
+          "deaths": 2,
+          "assists": 0,
+          "rounds_played": 9,
+          "kd": 2.0,
+          "adr": 35.0,
+          "adr_matches": 1,
+          "adr_rounds": 9,
+          "kr": 0.444,
+          "hs_percent": 100.0
+        },
+        "history": [
+          {
+            "steam_id64": "76561198202353993",
+            "nickname": "IMI Negev",
+            "team": "A",
+            "kills": 4,
+            "deaths": 2,
+            "assists": 0,
+            "hs_kills": 4,
+            "rounds_played": 9,
+            "effective_damage": 315.0,
+            "missing_reasons": [],
+            "kd": 2.0,
+            "hs_percent": 100.0,
+            "kr": 0.444,
+            "adr": 35.0,
+            "match_id": 1,
+            "map_name": "de_mirage",
+            "imported_at": "2026-10-09T12:32:39.200598+00:00",
+            "played_at": null
+          }
+        ],
+        "insights": {
+          "source": "Локальная выборка; сортировка по дате игры, при её отсутствии — по времени импорта",
+          "sample_size": 1,
+          "minimum_matches": 10,
+          "observations": [],
+          "status": "insufficient",
+          "message": "Недостаточно данных для оценки аномальности: 1 из 10 матчей. Недостаточно истории для оценки стабильности."
+        },
+        "map_splits": []
+      },
+      "profile": null,
+      "cs2": null,
+      "settings": { "steam_id64": "76561198202353993", "compact": false, "ai_enabled": false }
+    },
+    "76561198244754626": {
+      "match_count": 1,
+      "player_count": 10,
+      "queued_count": 0,
+      "recent_matches": [
+        {
+          "id": 1,
+          "file_sha256": "84a1a4191302bdd2a3bbb5a727842093744b1fb1a228aeec630369e44b622cb2",
+          "status": "ready",
+          "map_name": "de_mirage",
+          "played_at": null,
+          "imported_at": "2026-10-09T12:32:39.200598+00:00",
+          "team_scores": { "A": 8, "B": 2 },
+          "parser_version": "0.42.0",
+          "error": null,
+          "diagnostics": [
+            "SteamID берётся из replay; команды A/B обозначают стороны первого участия. Дата игры не восстанавливается.",
+            "ADR: изменение целочисленного HP. dmg_health может отличаться на 1 из-за округления; больший разрыв обнуляет достоверность ADR.",
+            "Поля player_death: assistedflash, assister_name, assister_steamid, assister_team_num, attacker_name, attacker_steamid, attacker_team_num, attackerblind, distance, dmg_armor, dmg_health, dominated, headshot, hitgroup, is_warmup_period, noreplay, noscope, penetrated, revenge, thrusmoke, tick, total_rounds_played, user_name, user_steamid, user_team_num, weapon, weapon_fauxitemid, weapon_itemid, weapon_originalowner_xuid, wipe",
+            "Поля player_hurt: armor, attacker_name, attacker_steamid, attacker_team_num, dmg_armor, dmg_health, health, hitgroup, is_warmup_period, tick, total_rounds_played, user_name, user_steamid, user_team_num, weapon",
+            "Итоговый счёт включает 10 раундов; для метрик подтверждено 9 полных раундов. Неполные раунды не входят в знаменатель ADR и K/R."
+          ],
+          "player_count": 10,
+          "round_count": 9,
+          "personal_stats": {
+            "steam_id64": "76561198244754626",
+            "nickname": "NIGHTSOUL",
+            "team": "A",
+            "kills": 10,
+            "deaths": 5,
+            "assists": 1,
+            "hs_kills": 6,
+            "rounds_played": 9,
+            "effective_damage": 954.0,
+            "missing_reasons": [],
+            "kd": 2.0,
+            "hs_percent": 60.0,
+            "kr": 1.111,
+            "adr": 106.0
+          },
+          "result": "win"
+        }
+      ],
+      "personal": {
+        "steam_id64": "76561198244754626",
+        "latest_nickname": "NIGHTSOUL",
+        "summary": {
+          "matches": 1,
+          "kills": 10,
+          "deaths": 5,
+          "assists": 1,
+          "rounds_played": 9,
+          "kd": 2.0,
+          "adr": 106.0,
+          "adr_matches": 1,
+          "adr_rounds": 9,
+          "kr": 1.111,
+          "hs_percent": 60.0
+        },
+        "rolling": {
+          "matches": 1,
+          "kills": 10,
+          "deaths": 5,
+          "assists": 1,
+          "rounds_played": 9,
+          "kd": 2.0,
+          "adr": 106.0,
+          "adr_matches": 1,
+          "adr_rounds": 9,
+          "kr": 1.111,
+          "hs_percent": 60.0
+        },
+        "history": [
+          {
+            "steam_id64": "76561198244754626",
+            "nickname": "NIGHTSOUL",
+            "team": "A",
+            "kills": 10,
+            "deaths": 5,
+            "assists": 1,
+            "hs_kills": 6,
+            "rounds_played": 9,
+            "effective_damage": 954.0,
+            "missing_reasons": [],
+            "kd": 2.0,
+            "hs_percent": 60.0,
+            "kr": 1.111,
+            "adr": 106.0,
+            "match_id": 1,
+            "map_name": "de_mirage",
+            "imported_at": "2026-10-09T12:32:39.200598+00:00",
+            "played_at": null
+          }
+        ],
+        "insights": {
+          "source": "Локальная выборка; сортировка по дате игры, при её отсутствии — по времени импорта",
+          "sample_size": 1,
+          "minimum_matches": 10,
+          "observations": [],
+          "status": "insufficient",
+          "message": "Недостаточно данных для оценки аномальности: 1 из 10 матчей. Недостаточно истории для оценки стабильности."
+        },
+        "map_splits": []
+      },
+      "profile": null,
+      "cs2": null,
+      "settings": { "steam_id64": "76561198244754626", "compact": false, "ai_enabled": false }
+    },
+    "76561198258044111": {
+      "match_count": 1,
+      "player_count": 10,
+      "queued_count": 0,
+      "recent_matches": [
+        {
+          "id": 1,
+          "file_sha256": "84a1a4191302bdd2a3bbb5a727842093744b1fb1a228aeec630369e44b622cb2",
+          "status": "ready",
+          "map_name": "de_mirage",
+          "played_at": null,
+          "imported_at": "2026-10-09T12:32:39.200598+00:00",
+          "team_scores": { "A": 8, "B": 2 },
+          "parser_version": "0.42.0",
+          "error": null,
+          "diagnostics": [
+            "SteamID берётся из replay; команды A/B обозначают стороны первого участия. Дата игры не восстанавливается.",
+            "ADR: изменение целочисленного HP. dmg_health может отличаться на 1 из-за округления; больший разрыв обнуляет достоверность ADR.",
+            "Поля player_death: assistedflash, assister_name, assister_steamid, assister_team_num, attacker_name, attacker_steamid, attacker_team_num, attackerblind, distance, dmg_armor, dmg_health, dominated, headshot, hitgroup, is_warmup_period, noreplay, noscope, penetrated, revenge, thrusmoke, tick, total_rounds_played, user_name, user_steamid, user_team_num, weapon, weapon_fauxitemid, weapon_itemid, weapon_originalowner_xuid, wipe",
+            "Поля player_hurt: armor, attacker_name, attacker_steamid, attacker_team_num, dmg_armor, dmg_health, health, hitgroup, is_warmup_period, tick, total_rounds_played, user_name, user_steamid, user_team_num, weapon",
+            "Итоговый счёт включает 10 раундов; для метрик подтверждено 9 полных раундов. Неполные раунды не входят в знаменатель ADR и K/R."
+          ],
+          "player_count": 10,
+          "round_count": 9,
+          "personal_stats": {
+            "steam_id64": "76561198258044111",
+            "nickname": "-ExΩtiC-",
+            "team": "B",
+            "kills": 8,
+            "deaths": 8,
+            "assists": 1,
+            "hs_kills": 2,
+            "rounds_played": 9,
+            "effective_damage": 783.0,
+            "missing_reasons": [],
+            "kd": 1.0,
+            "hs_percent": 25.0,
+            "kr": 0.889,
+            "adr": 87.0
+          },
+          "result": "loss"
+        }
+      ],
+      "personal": {
+        "steam_id64": "76561198258044111",
+        "latest_nickname": "-ExΩtiC-",
+        "summary": {
+          "matches": 1,
+          "kills": 8,
+          "deaths": 8,
+          "assists": 1,
+          "rounds_played": 9,
+          "kd": 1.0,
+          "adr": 87.0,
+          "adr_matches": 1,
+          "adr_rounds": 9,
+          "kr": 0.889,
+          "hs_percent": 25.0
+        },
+        "rolling": {
+          "matches": 1,
+          "kills": 8,
+          "deaths": 8,
+          "assists": 1,
+          "rounds_played": 9,
+          "kd": 1.0,
+          "adr": 87.0,
+          "adr_matches": 1,
+          "adr_rounds": 9,
+          "kr": 0.889,
+          "hs_percent": 25.0
+        },
+        "history": [
+          {
+            "steam_id64": "76561198258044111",
+            "nickname": "-ExΩtiC-",
+            "team": "B",
+            "kills": 8,
+            "deaths": 8,
+            "assists": 1,
+            "hs_kills": 2,
+            "rounds_played": 9,
+            "effective_damage": 783.0,
+            "missing_reasons": [],
+            "kd": 1.0,
+            "hs_percent": 25.0,
+            "kr": 0.889,
+            "adr": 87.0,
+            "match_id": 1,
+            "map_name": "de_mirage",
+            "imported_at": "2026-10-09T12:32:39.200598+00:00",
+            "played_at": null
+          }
+        ],
+        "insights": {
+          "source": "Локальная выборка; сортировка по дате игры, при её отсутствии — по времени импорта",
+          "sample_size": 1,
+          "minimum_matches": 10,
+          "observations": [],
+          "status": "insufficient",
+          "message": "Недостаточно данных для оценки аномальности: 1 из 10 матчей. Недостаточно истории для оценки стабильности."
+        },
+        "map_splits": []
+      },
+      "profile": null,
+      "cs2": null,
+      "settings": { "steam_id64": "76561198258044111", "compact": false, "ai_enabled": false }
+    },
+    "76561198265366770": {
+      "match_count": 1,
+      "player_count": 10,
+      "queued_count": 0,
+      "recent_matches": [
+        {
+          "id": 1,
+          "file_sha256": "84a1a4191302bdd2a3bbb5a727842093744b1fb1a228aeec630369e44b622cb2",
+          "status": "ready",
+          "map_name": "de_mirage",
+          "played_at": null,
+          "imported_at": "2026-10-09T12:32:39.200598+00:00",
+          "team_scores": { "A": 8, "B": 2 },
+          "parser_version": "0.42.0",
+          "error": null,
+          "diagnostics": [
+            "SteamID берётся из replay; команды A/B обозначают стороны первого участия. Дата игры не восстанавливается.",
+            "ADR: изменение целочисленного HP. dmg_health может отличаться на 1 из-за округления; больший разрыв обнуляет достоверность ADR.",
+            "Поля player_death: assistedflash, assister_name, assister_steamid, assister_team_num, attacker_name, attacker_steamid, attacker_team_num, attackerblind, distance, dmg_armor, dmg_health, dominated, headshot, hitgroup, is_warmup_period, noreplay, noscope, penetrated, revenge, thrusmoke, tick, total_rounds_played, user_name, user_steamid, user_team_num, weapon, weapon_fauxitemid, weapon_itemid, weapon_originalowner_xuid, wipe",
+            "Поля player_hurt: armor, attacker_name, attacker_steamid, attacker_team_num, dmg_armor, dmg_health, health, hitgroup, is_warmup_period, tick, total_rounds_played, user_name, user_steamid, user_team_num, weapon",
+            "Итоговый счёт включает 10 раундов; для метрик подтверждено 9 полных раундов. Неполные раунды не входят в знаменатель ADR и K/R."
+          ],
+          "player_count": 10,
+          "round_count": 9,
+          "personal_stats": {
+            "steam_id64": "76561198265366770",
+            "nickname": "123",
+            "team": "A",
+            "kills": 11,
+            "deaths": 4,
+            "assists": 1,
+            "hs_kills": 8,
+            "rounds_played": 9,
+            "effective_damage": 1163.0,
+            "missing_reasons": [],
+            "kd": 2.75,
+            "hs_percent": 72.73,
+            "kr": 1.222,
+            "adr": 129.22
+          },
+          "result": "win"
+        }
+      ],
+      "personal": {
+        "steam_id64": "76561198265366770",
+        "latest_nickname": "123",
+        "summary": {
+          "matches": 1,
+          "kills": 11,
+          "deaths": 4,
+          "assists": 1,
+          "rounds_played": 9,
+          "kd": 2.75,
+          "adr": 129.22,
+          "adr_matches": 1,
+          "adr_rounds": 9,
+          "kr": 1.222,
+          "hs_percent": 72.73
+        },
+        "rolling": {
+          "matches": 1,
+          "kills": 11,
+          "deaths": 4,
+          "assists": 1,
+          "rounds_played": 9,
+          "kd": 2.75,
+          "adr": 129.22,
+          "adr_matches": 1,
+          "adr_rounds": 9,
+          "kr": 1.222,
+          "hs_percent": 72.73
+        },
+        "history": [
+          {
+            "steam_id64": "76561198265366770",
+            "nickname": "123",
+            "team": "A",
+            "kills": 11,
+            "deaths": 4,
+            "assists": 1,
+            "hs_kills": 8,
+            "rounds_played": 9,
+            "effective_damage": 1163.0,
+            "missing_reasons": [],
+            "kd": 2.75,
+            "hs_percent": 72.73,
+            "kr": 1.222,
+            "adr": 129.22,
+            "match_id": 1,
+            "map_name": "de_mirage",
+            "imported_at": "2026-10-09T12:32:39.200598+00:00",
+            "played_at": null
+          }
+        ],
+        "insights": {
+          "source": "Локальная выборка; сортировка по дате игры, при её отсутствии — по времени импорта",
+          "sample_size": 1,
+          "minimum_matches": 10,
+          "observations": [],
+          "status": "insufficient",
+          "message": "Недостаточно данных для оценки аномальности: 1 из 10 матчей. Недостаточно истории для оценки стабильности."
+        },
+        "map_splits": []
+      },
+      "profile": null,
+      "cs2": null,
+      "settings": { "steam_id64": "76561198265366770", "compact": false, "ai_enabled": false }
+    },
+    "76561198280975787": {
+      "match_count": 1,
+      "player_count": 10,
+      "queued_count": 0,
+      "recent_matches": [
+        {
+          "id": 1,
+          "file_sha256": "84a1a4191302bdd2a3bbb5a727842093744b1fb1a228aeec630369e44b622cb2",
+          "status": "ready",
+          "map_name": "de_mirage",
+          "played_at": null,
+          "imported_at": "2026-10-09T12:32:39.200598+00:00",
+          "team_scores": { "A": 8, "B": 2 },
+          "parser_version": "0.42.0",
+          "error": null,
+          "diagnostics": [
+            "SteamID берётся из replay; команды A/B обозначают стороны первого участия. Дата игры не восстанавливается.",
+            "ADR: изменение целочисленного HP. dmg_health может отличаться на 1 из-за округления; больший разрыв обнуляет достоверность ADR.",
+            "Поля player_death: assistedflash, assister_name, assister_steamid, assister_team_num, attacker_name, attacker_steamid, attacker_team_num, attackerblind, distance, dmg_armor, dmg_health, dominated, headshot, hitgroup, is_warmup_period, noreplay, noscope, penetrated, revenge, thrusmoke, tick, total_rounds_played, user_name, user_steamid, user_team_num, weapon, weapon_fauxitemid, weapon_itemid, weapon_originalowner_xuid, wipe",
+            "Поля player_hurt: armor, attacker_name, attacker_steamid, attacker_team_num, dmg_armor, dmg_health, health, hitgroup, is_warmup_period, tick, total_rounds_played, user_name, user_steamid, user_team_num, weapon",
+            "Итоговый счёт включает 10 раундов; для метрик подтверждено 9 полных раундов. Неполные раунды не входят в знаменатель ADR и K/R."
+          ],
+          "player_count": 10,
+          "round_count": 9,
+          "personal_stats": {
+            "steam_id64": "76561198280975787",
+            "nickname": "povergo",
+            "team": "B",
+            "kills": 4,
+            "deaths": 9,
+            "assists": 0,
+            "hs_kills": 2,
+            "rounds_played": 9,
+            "effective_damage": 344.0,
+            "missing_reasons": [],
+            "kd": 0.444,
+            "hs_percent": 50.0,
+            "kr": 0.444,
+            "adr": 38.22
+          },
+          "result": "loss"
+        }
+      ],
+      "personal": {
+        "steam_id64": "76561198280975787",
+        "latest_nickname": "povergo",
+        "summary": {
+          "matches": 1,
+          "kills": 4,
+          "deaths": 9,
+          "assists": 0,
+          "rounds_played": 9,
+          "kd": 0.444,
+          "adr": 38.22,
+          "adr_matches": 1,
+          "adr_rounds": 9,
+          "kr": 0.444,
+          "hs_percent": 50.0
+        },
+        "rolling": {
+          "matches": 1,
+          "kills": 4,
+          "deaths": 9,
+          "assists": 0,
+          "rounds_played": 9,
+          "kd": 0.444,
+          "adr": 38.22,
+          "adr_matches": 1,
+          "adr_rounds": 9,
+          "kr": 0.444,
+          "hs_percent": 50.0
+        },
+        "history": [
+          {
+            "steam_id64": "76561198280975787",
+            "nickname": "povergo",
+            "team": "B",
+            "kills": 4,
+            "deaths": 9,
+            "assists": 0,
+            "hs_kills": 2,
+            "rounds_played": 9,
+            "effective_damage": 344.0,
+            "missing_reasons": [],
+            "kd": 0.444,
+            "hs_percent": 50.0,
+            "kr": 0.444,
+            "adr": 38.22,
+            "match_id": 1,
+            "map_name": "de_mirage",
+            "imported_at": "2026-10-09T12:32:39.200598+00:00",
+            "played_at": null
+          }
+        ],
+        "insights": {
+          "source": "Локальная выборка; сортировка по дате игры, при её отсутствии — по времени импорта",
+          "sample_size": 1,
+          "minimum_matches": 10,
+          "observations": [],
+          "status": "insufficient",
+          "message": "Недостаточно данных для оценки аномальности: 1 из 10 матчей. Недостаточно истории для оценки стабильности."
+        },
+        "map_splits": []
+      },
+      "profile": null,
+      "cs2": null,
+      "settings": { "steam_id64": "76561198280975787", "compact": false, "ai_enabled": false }
+    },
+    "76561198324843075": {
+      "match_count": 1,
+      "player_count": 10,
+      "queued_count": 0,
+      "recent_matches": [
+        {
+          "id": 1,
+          "file_sha256": "84a1a4191302bdd2a3bbb5a727842093744b1fb1a228aeec630369e44b622cb2",
+          "status": "ready",
+          "map_name": "de_mirage",
+          "played_at": null,
+          "imported_at": "2026-10-09T12:32:39.200598+00:00",
+          "team_scores": { "A": 8, "B": 2 },
+          "parser_version": "0.42.0",
+          "error": null,
+          "diagnostics": [
+            "SteamID берётся из replay; команды A/B обозначают стороны первого участия. Дата игры не восстанавливается.",
+            "ADR: изменение целочисленного HP. dmg_health может отличаться на 1 из-за округления; больший разрыв обнуляет достоверность ADR.",
+            "Поля player_death: assistedflash, assister_name, assister_steamid, assister_team_num, attacker_name, attacker_steamid, attacker_team_num, attackerblind, distance, dmg_armor, dmg_health, dominated, headshot, hitgroup, is_warmup_period, noreplay, noscope, penetrated, revenge, thrusmoke, tick, total_rounds_played, user_name, user_steamid, user_team_num, weapon, weapon_fauxitemid, weapon_itemid, weapon_originalowner_xuid, wipe",
+            "Поля player_hurt: armor, attacker_name, attacker_steamid, attacker_team_num, dmg_armor, dmg_health, health, hitgroup, is_warmup_period, tick, total_rounds_played, user_name, user_steamid, user_team_num, weapon",
+            "Итоговый счёт включает 10 раундов; для метрик подтверждено 9 полных раундов. Неполные раунды не входят в знаменатель ADR и K/R."
+          ],
+          "player_count": 10,
+          "round_count": 9,
+          "personal_stats": {
+            "steam_id64": "76561198324843075",
+            "nickname": "Trahun <3 V",
+            "team": "B",
+            "kills": 2,
+            "deaths": 9,
+            "assists": 3,
+            "hs_kills": 2,
+            "rounds_played": 9,
+            "effective_damage": 427.0,
+            "missing_reasons": [],
+            "kd": 0.222,
+            "hs_percent": 100.0,
+            "kr": 0.222,
+            "adr": 47.44
+          },
+          "result": "loss"
+        }
+      ],
+      "personal": {
+        "steam_id64": "76561198324843075",
+        "latest_nickname": "Trahun <3 V",
+        "summary": {
+          "matches": 1,
+          "kills": 2,
+          "deaths": 9,
+          "assists": 3,
+          "rounds_played": 9,
+          "kd": 0.222,
+          "adr": 47.44,
+          "adr_matches": 1,
+          "adr_rounds": 9,
+          "kr": 0.222,
+          "hs_percent": 100.0
+        },
+        "rolling": {
+          "matches": 1,
+          "kills": 2,
+          "deaths": 9,
+          "assists": 3,
+          "rounds_played": 9,
+          "kd": 0.222,
+          "adr": 47.44,
+          "adr_matches": 1,
+          "adr_rounds": 9,
+          "kr": 0.222,
+          "hs_percent": 100.0
+        },
+        "history": [
+          {
+            "steam_id64": "76561198324843075",
+            "nickname": "Trahun <3 V",
+            "team": "B",
+            "kills": 2,
+            "deaths": 9,
+            "assists": 3,
+            "hs_kills": 2,
+            "rounds_played": 9,
+            "effective_damage": 427.0,
+            "missing_reasons": [],
+            "kd": 0.222,
+            "hs_percent": 100.0,
+            "kr": 0.222,
+            "adr": 47.44,
+            "match_id": 1,
+            "map_name": "de_mirage",
+            "imported_at": "2026-10-09T12:32:39.200598+00:00",
+            "played_at": null
+          }
+        ],
+        "insights": {
+          "source": "Локальная выборка; сортировка по дате игры, при её отсутствии — по времени импорта",
+          "sample_size": 1,
+          "minimum_matches": 10,
+          "observations": [],
+          "status": "insufficient",
+          "message": "Недостаточно данных для оценки аномальности: 1 из 10 матчей. Недостаточно истории для оценки стабильности."
+        },
+        "map_splits": []
+      },
+      "profile": null,
+      "cs2": null,
+      "settings": { "steam_id64": "76561198324843075", "compact": false, "ai_enabled": false }
+    }
+  },
+  "insights": {
+    "1": [
+      {
+        "steam_id64": "76561197964020430",
+        "notes": [
+          "11 убийств противников и 5 смертей; K/D 2,2. Тимкиллы и самоубийства не входят в K.",
+          "ADR 135,44 за 9 раундов: 1219 эффективного урона противникам, включая гранаты и огонь.",
+          "Сильная сторона в этой записи: 1,222 убийства на раунд. Порог заметки — 0,8; это правило приложения, а не сравнение с мировой выборкой.",
+          "Один матч не определяет стабильность. Рейтинг Premier, KAST, трейды и клатчи в MVP не рассчитываются."
+        ],
+        "history": {
+          "source": "Локальная выборка; сортировка по дате игры, при её отсутствии — по времени импорта",
+          "sample_size": 1,
+          "minimum_matches": 10,
+          "observations": [],
+          "status": "insufficient",
+          "message": "Недостаточно данных для оценки аномальности: 1 из 10 матчей. Недостаточно истории для оценки стабильности."
+        }
+      },
+      {
+        "steam_id64": "76561198265366770",
+        "notes": [
+          "11 убийств противников и 4 смертей; K/D 2,75. Тимкиллы и самоубийства не входят в K.",
+          "ADR 129,22 за 9 раундов: 1163 эффективного урона противникам, включая гранаты и огонь.",
+          "Сильная сторона в этой записи: 1,222 убийства на раунд. Порог заметки — 0,8; это правило приложения, а не сравнение с мировой выборкой.",
+          "Один матч не определяет стабильность. Рейтинг Premier, KAST, трейды и клатчи в MVP не рассчитываются."
+        ],
+        "history": {
+          "source": "Локальная выборка; сортировка по дате игры, при её отсутствии — по времени импорта",
+          "sample_size": 1,
+          "minimum_matches": 10,
+          "observations": [],
+          "status": "insufficient",
+          "message": "Недостаточно данных для оценки аномальности: 1 из 10 матчей. Недостаточно истории для оценки стабильности."
+        }
+      },
+      {
+        "steam_id64": "76561198244754626",
+        "notes": [
+          "10 убийств противников и 5 смертей; K/D 2. Тимкиллы и самоубийства не входят в K.",
+          "ADR 106 за 9 раундов: 954 эффективного урона противникам, включая гранаты и огонь.",
+          "Сильная сторона в этой записи: 1,111 убийства на раунд. Порог заметки — 0,8; это правило приложения, а не сравнение с мировой выборкой.",
+          "Один матч не определяет стабильность. Рейтинг Premier, KAST, трейды и клатчи в MVP не рассчитываются."
+        ],
+        "history": {
+          "source": "Локальная выборка; сортировка по дате игры, при её отсутствии — по времени импорта",
+          "sample_size": 1,
+          "minimum_matches": 10,
+          "observations": [],
+          "status": "insufficient",
+          "message": "Недостаточно данных для оценки аномальности: 1 из 10 матчей. Недостаточно истории для оценки стабильности."
+        }
+      },
+      {
+        "steam_id64": "76561198118803912",
+        "notes": [
+          "5 убийств противников и 7 смертей; K/D 0,714. Тимкиллы и самоубийства не входят в K.",
+          "ADR 63,56 за 9 раундов: 572 эффективного урона противникам, включая гранаты и огонь.",
+          "Один матч не определяет стабильность. Рейтинг Premier, KAST, трейды и клатчи в MVP не рассчитываются."
+        ],
+        "history": {
+          "source": "Локальная выборка; сортировка по дате игры, при её отсутствии — по времени импорта",
+          "sample_size": 1,
+          "minimum_matches": 10,
+          "observations": [],
+          "status": "insufficient",
+          "message": "Недостаточно данных для оценки аномальности: 1 из 10 матчей. Недостаточно истории для оценки стабильности."
+        }
+      },
+      {
+        "steam_id64": "76561198202353993",
+        "notes": [
+          "4 убийств противников и 2 смертей; K/D 2. Тимкиллы и самоубийства не входят в K.",
+          "ADR 35 за 9 раундов: 315 эффективного урона противникам, включая гранаты и огонь.",
+          "Повод разобрать свои раунды: 0,444 убийства на раунд (порог заметки 0,5). По одной статистике нельзя определить причину.",
+          "Один матч не определяет стабильность. Рейтинг Premier, KAST, трейды и клатчи в MVP не рассчитываются."
+        ],
+        "history": {
+          "source": "Локальная выборка; сортировка по дате игры, при её отсутствии — по времени импорта",
+          "sample_size": 1,
+          "minimum_matches": 10,
+          "observations": [],
+          "status": "insufficient",
+          "message": "Недостаточно данных для оценки аномальности: 1 из 10 матчей. Недостаточно истории для оценки стабильности."
+        }
+      },
+      {
+        "steam_id64": "76561198258044111",
+        "notes": [
+          "8 убийств противников и 8 смертей; K/D 1. Тимкиллы и самоубийства не входят в K.",
+          "ADR 87 за 9 раундов: 783 эффективного урона противникам, включая гранаты и огонь.",
+          "Сильная сторона в этой записи: 0,889 убийства на раунд. Порог заметки — 0,8; это правило приложения, а не сравнение с мировой выборкой.",
+          "Один матч не определяет стабильность. Рейтинг Premier, KAST, трейды и клатчи в MVP не рассчитываются."
+        ],
+        "history": {
+          "source": "Локальная выборка; сортировка по дате игры, при её отсутствии — по времени импорта",
+          "sample_size": 1,
+          "minimum_matches": 10,
+          "observations": [],
+          "status": "insufficient",
+          "message": "Недостаточно данных для оценки аномальности: 1 из 10 матчей. Недостаточно истории для оценки стабильности."
+        }
+      },
+      {
+        "steam_id64": "76561198194694750",
+        "notes": [
+          "6 убийств противников и 7 смертей; K/D 0,857. Тимкиллы и самоубийства не входят в K.",
+          "ADR 83,78 за 9 раундов: 754 эффективного урона противникам, включая гранаты и огонь.",
+          "Один матч не определяет стабильность. Рейтинг Premier, KAST, трейды и клатчи в MVP не рассчитываются."
+        ],
+        "history": {
+          "source": "Локальная выборка; сортировка по дате игры, при её отсутствии — по времени импорта",
+          "sample_size": 1,
+          "minimum_matches": 10,
+          "observations": [],
+          "status": "insufficient",
+          "message": "Недостаточно данных для оценки аномальности: 1 из 10 матчей. Недостаточно истории для оценки стабильности."
+        }
+      },
+      {
+        "steam_id64": "76561198280975787",
+        "notes": [
+          "4 убийств противников и 9 смертей; K/D 0,444. Тимкиллы и самоубийства не входят в K.",
+          "ADR 38,22 за 9 раундов: 344 эффективного урона противникам, включая гранаты и огонь.",
+          "Повод разобрать свои раунды: 0,444 убийства на раунд (порог заметки 0,5). По одной статистике нельзя определить причину.",
+          "Один матч не определяет стабильность. Рейтинг Premier, KAST, трейды и клатчи в MVP не рассчитываются."
+        ],
+        "history": {
+          "source": "Локальная выборка; сортировка по дате игры, при её отсутствии — по времени импорта",
+          "sample_size": 1,
+          "minimum_matches": 10,
+          "observations": [],
+          "status": "insufficient",
+          "message": "Недостаточно данных для оценки аномальности: 1 из 10 матчей. Недостаточно истории для оценки стабильности."
+        }
+      },
+      {
+        "steam_id64": "76561198073049527",
+        "notes": [
+          "3 убийств противников и 8 смертей; K/D 0,375. Тимкиллы и самоубийства не входят в K.",
+          "ADR 58,78 за 9 раундов: 529 эффективного урона противникам, включая гранаты и огонь.",
+          "Повод разобрать свои раунды: 0,333 убийства на раунд (порог заметки 0,5). По одной статистике нельзя определить причину.",
+          "Один матч не определяет стабильность. Рейтинг Premier, KAST, трейды и клатчи в MVP не рассчитываются."
+        ],
+        "history": {
+          "source": "Локальная выборка; сортировка по дате игры, при её отсутствии — по времени импорта",
+          "sample_size": 1,
+          "minimum_matches": 10,
+          "observations": [],
+          "status": "insufficient",
+          "message": "Недостаточно данных для оценки аномальности: 1 из 10 матчей. Недостаточно истории для оценки стабильности."
+        }
+      },
+      {
+        "steam_id64": "76561198324843075",
+        "notes": [
+          "2 убийств противников и 9 смертей; K/D 0,222. Тимкиллы и самоубийства не входят в K.",
+          "ADR 47,44 за 9 раундов: 427 эффективного урона противникам, включая гранаты и огонь.",
+          "Повод разобрать свои раунды: 0,222 убийства на раунд (порог заметки 0,5). По одной статистике нельзя определить причину.",
+          "Один матч не определяет стабильность. Рейтинг Premier, KAST, трейды и клатчи в MVP не рассчитываются."
+        ],
+        "history": {
+          "source": "Локальная выборка; сортировка по дате игры, при её отсутствии — по времени импорта",
+          "sample_size": 1,
+          "minimum_matches": 10,
+          "observations": [],
+          "status": "insufficient",
+          "message": "Недостаточно данных для оценки аномальности: 1 из 10 матчей. Недостаточно истории для оценки стабильности."
+        }
+      }
+    ]
+  },
+  "health": {
+    "status": "snapshot",
+    "parser_version": "0.42.0",
+    "max_upload_bytes": 0,
+    "retain_demos": false,
+    "ai_enabled": false
+  }
+}
