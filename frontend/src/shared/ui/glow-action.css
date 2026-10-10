@@ -1,0 +1,168 @@
+/* The two-second rotating light follows the public Wope button reference. */
+.button.primary.glow-action {
+  --glow-period: 2s;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 44px;
+  padding: 9px 23px;
+  border: 1px solid #ffffff1a;
+  border-radius: 999px;
+  background: radial-gradient(107.5% 107.5% at 50% 215%, #ffffff3d, #ffffff00), #ffffff0a;
+  box-shadow:
+    inset 0 1px #ffffff0a,
+    0 5px 22px #934bdd16;
+  color: #fff;
+  font-family: 'Onest', 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.15px;
+  line-height: 24px;
+}
+.glow-action-decor,
+.glow-action-stars,
+.glow-action-ring,
+.button.primary.glow-action::after {
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.glow-action-decor {
+  overflow: hidden;
+}
+.glow-action-stars,
+.glow-action-ring {
+  inset: 0;
+}
+.glow-action-aura,
+.glow-action-light {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  aspect-ratio: 1;
+  background: conic-gradient(#ffffff80 0deg, #ffffff00 60deg, #ffffff00 310deg, #ffffff80 360deg);
+  transform: translate(-50%, -50%);
+  animation: glow-action-turn var(--glow-period) linear infinite;
+}
+.glow-action-aura {
+  filter: blur(8px);
+  opacity: 0.12;
+}
+.glow-action-stars {
+  /* A repeating point mask stays still while light moves underneath it. */
+  -webkit-mask-image:
+    radial-gradient(circle at 2px 4px, #fff 0 0.55px, #ffffff00 1px),
+    radial-gradient(circle at 14px 7px, #fff 0 0.55px, #ffffff00 1px),
+    radial-gradient(circle at 24px 11px, #fff 0 0.55px, #ffffff00 1px),
+    radial-gradient(circle at 9px 17px, #fff 0 0.55px, #ffffff00 1px),
+    radial-gradient(circle at 19px 22px, #fff 0 0.55px, #ffffff00 1px);
+  mask-image:
+    radial-gradient(circle at 2px 4px, #fff 0 0.55px, #ffffff00 1px),
+    radial-gradient(circle at 14px 7px, #fff 0 0.55px, #ffffff00 1px),
+    radial-gradient(circle at 24px 11px, #fff 0 0.55px, #ffffff00 1px),
+    radial-gradient(circle at 9px 17px, #fff 0 0.55px, #ffffff00 1px),
+    radial-gradient(circle at 19px 22px, #fff 0 0.55px, #ffffff00 1px);
+  -webkit-mask-size: 28px 24px;
+  mask-size: 28px 24px;
+  -webkit-mask-repeat: repeat;
+  mask-repeat: repeat;
+}
+.glow-action-ring {
+  padding: 1px;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+.button.primary.glow-action::after {
+  content: '';
+  background: radial-gradient(85% 120% at 50% 120%, #ffffff3d, #ffffff00);
+  opacity: 0;
+  transition: opacity 1s;
+}
+.glow-action-label {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: inherit;
+  background: linear-gradient(180deg, #e8dbf3bf, #fff 85%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.glow-action-label > svg {
+  color: #eee2fb;
+}
+.button.primary.glow-action:not(:disabled):hover,
+.button.primary.glow-action:focus-visible {
+  background-color: #ffffff10;
+  border-color: #e0c2ff52;
+  filter: none;
+  box-shadow:
+    inset 0 1px #ffffff14,
+    0 5px 28px #b578e72b;
+}
+.button.primary.glow-action:not(:disabled):hover::after,
+.button.primary.glow-action:focus-visible::after {
+  opacity: 0.7;
+}
+.button.primary.glow-action:disabled {
+  background-color: #ffffff0a;
+  border-color: #ffffff1a;
+  box-shadow: none;
+  filter: none;
+}
+.glow-action:disabled .glow-action-light,
+.glow-action:disabled .glow-action-aura {
+  animation-play-state: paused;
+}
+.glow-action:disabled .glow-action-decor {
+  opacity: 0.2;
+}
+@keyframes glow-action-turn {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .glow-action-light,
+  .glow-action-aura {
+    animation: none;
+    transform: translate(-50%, -50%) rotate(-35deg);
+  }
+  .button.primary.glow-action::after {
+    transition: none;
+  }
+}
+@media (forced-colors: active) {
+  .glow-action-decor,
+  .button.primary.glow-action::after {
+    display: none;
+  }
+  .button.primary.glow-action {
+    color: ButtonText;
+    background: ButtonFace;
+    border-color: ButtonText;
+    box-shadow: none;
+  }
+  .glow-action-label {
+    background: none;
+    color: ButtonText;
+    -webkit-text-fill-color: ButtonText;
+  }
+  .glow-action-label > svg {
+    color: ButtonText;
+  }
+}
