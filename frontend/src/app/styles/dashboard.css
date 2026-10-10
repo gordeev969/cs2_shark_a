@@ -921,7 +921,8 @@ footer {
     font-size: 12px;
     line-height: 1.7;
   }
-  .page-header > .button {
+  .page-header > .button,
+  .page-header > .glow-action-wrap {
     width: 100%;
   }
   .eyebrow {

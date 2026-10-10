@@ -1,0 +1,42 @@
+[
+  {
+    "phase_ms": 0,
+    "max_channel_delta": 1,
+    "mean_channel_delta": 0.002405149051490515
+  },
+  {
+    "phase_ms": 250,
+    "max_channel_delta": 1,
+    "mean_channel_delta": 0.002244241192411924
+  },
+  {
+    "phase_ms": 500,
+    "max_channel_delta": 1,
+    "mean_channel_delta": 0.00220189701897019
+  },
+  {
+    "phase_ms": 750,
+    "max_channel_delta": 1,
+    "mean_channel_delta": 0.0023458672086720867
+  },
+  {
+    "phase_ms": 1000,
+    "max_channel_delta": 1,
+    "mean_channel_delta": 0.002405149051490515
+  },
+  {
+    "phase_ms": 1250,
+    "max_channel_delta": 1,
+    "mean_channel_delta": 0.002252710027100271
+  },
+  {
+    "phase_ms": 1500,
+    "max_channel_delta": 1,
+    "mean_channel_delta": 0.0020748644986449865
+  },
+  {
+    "phase_ms": 1750,
+    "max_channel_delta": 1,
+    "mean_channel_delta": 0.0023119918699186994
+  }
+]

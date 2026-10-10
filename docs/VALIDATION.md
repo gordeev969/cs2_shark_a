@@ -102,3 +102,9 @@ Frontend lint/format/typecheck and both native and Pages builds pass. All 11 fro
 ## Two-second light animation
 
 Публичный CSS Wope проверен в Chromium: общий цикл света/рамки/частиц — 2s linear, размытие 8 px, opacity 0.12, hover transition 1s. Эта механика адаптирована в shared/ui/glow-action.css; статическое мерцание всех точек заменено проходящим светом под неподвижной маской. Прошли FSD/ESLint, Prettier, 11 frontend tests, native/Pages builds и Pages smoke на семи ширинах 320–1920 px. В Chromium отдельно проверены три синхронных 2s linear слоя, изменение видимых кадров, hover, focus/Enter, остановка при reduced motion и disabled, forced colors и переход в матч без JavaScript ошибок. GIF снят с реальной статической сборки: 40 кадров × 50 ms, один полный цикл; игровая статистика и серверная логика не менялись. Native parser/E2E в этой проверке не повторялись; предыдущие результаты сохранены выше.
+
+## Original Wope layer correction
+
+Предыдущий вариант отличался заменой SVG-маски точками, геометрией слоёв и дополнительным свечением. Они заменены на структуру и параметры извлечённого публичного CSS Wope. Сравнены 8 фаз при одинаковых размере/фоне без текста: максимальная разница RGB 1, средняя <0.003 (шкала 0–255). Сохранены JSON результата и GIF сравнения.
+
+Прошли FSD/ESLint, Prettier, 11 frontend tests, native/Pages builds и Pages smoke на семи ширинах 320–1920 px. Два native Playwright-сценария (Russian dashboard/mobile и mock CS2 connect/sync/logout/CSRF) прошли в Chromium. Отдельно проверены движение видимых кадров, hover, focus/Enter, пауза disabled, reduced motion, forced colors и переход к матчу; JavaScript ошибок нет. Настоящая демка в этой проверке не требовалась и parser не повторялся.

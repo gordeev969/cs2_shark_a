@@ -4,24 +4,28 @@ import './glow-action.css'
 
 function GlowDecoration() {
   return (
-    <span className="glow-action-decor" aria-hidden="true">
-      <span className="glow-action-aura" />
-      <span className="glow-action-stars">
-        <span className="glow-action-light" />
+    <>
+      <span className="glow-action-animations" aria-hidden="true">
+        <span className="glow-action-aura" />
+        <span className="glow-action-stars-mask">
+          <span className="glow-action-stars" />
+        </span>
       </span>
-      <span className="glow-action-ring">
-        <span className="glow-action-light" />
+      <span className="glow-action-borders-mask" aria-hidden="true">
+        <span className="glow-action-borders" />
       </span>
-    </span>
+    </>
   )
 }
 
 export function GlowLink({ children, className = '', ...props }: ComponentProps<typeof Link>) {
   return (
-    <Link {...props} className={`button primary glow-action ${className}`.trim()}>
+    <span className="glow-action-wrap">
       <GlowDecoration />
-      <span className="glow-action-label">{children}</span>
-    </Link>
+      <Link {...props} className={`button primary glow-action-control ${className}`.trim()}>
+        <span className="glow-action-label">{children}</span>
+      </Link>
+    </span>
   )
 }
 
@@ -32,9 +36,15 @@ export function GlowButton({
   ...props
 }: ComponentProps<'button'>) {
   return (
-    <button {...props} type={type} className={`button primary glow-action ${className}`.trim()}>
+    <span className="glow-action-wrap" data-disabled={props.disabled || undefined}>
       <GlowDecoration />
-      <span className="glow-action-label">{children}</span>
-    </button>
+      <button
+        {...props}
+        type={type}
+        className={`button primary glow-action-control ${className}`.trim()}
+      >
+        <span className="glow-action-label">{children}</span>
+      </button>
+    </span>
   )
 }
