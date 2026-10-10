@@ -1,6 +1,6 @@
 /* Layer geometry, mask and keyframes from the public Wope CTA CSS (2026-10-10). */
 .glow-action-wrap {
-  --glow-period: 2s;
+  --glow-period: 4s;
   isolation: isolate;
   overflow: hidden;
   border-radius: 999px;
@@ -44,6 +44,7 @@
 .glow-action-aura,
 .glow-action-stars {
   animation: glow-action-turn var(--glow-period) infinite linear;
+  will-change: transform;
   background-image: conic-gradient(
     rgba(255, 255, 255, 0.5) 0deg,
     rgba(255, 255, 255, 0) 60deg,
