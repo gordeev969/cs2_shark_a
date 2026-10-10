@@ -112,3 +112,17 @@ Frontend lint/format/typecheck and both native and Pages builds pass. All 11 fro
 ## Slower primary action animation
 
 По просьбе пользователя цикл трёх слоёв увеличен с 2s до 4s, с сохранением linear и оригинальных масок/геометрии. Добавлен `will-change: transform`. Прошли Prettier, FSD/ESLint, 11 frontend tests и native/Pages builds. В Chromium проверены синхронные 4s linear слои, движение видимых кадров и непрерывность на стыке: между 3999 и 4001 ms каждый слой проходит 0.18° без скачка. Hover, focus/Enter, disabled, reduced motion и forced colors прошли; JavaScript ошибок нет. Pages smoke прошёл на семи ширинах 320–1920 px с маршрутами матча/профиля и мобильным меню. Ранее сохранённые GIF и сравнение с Wope относятся к исходному циклу 2s. Backend и parser в этой визуальной проверке не запускались повторно.
+
+## Taste Skill refinement
+
+Применён аудит redesign-preserve из [Taste Skill](https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/SKILL.md); решения и границы применения к дашборду описаны в TASTE_AUDIT.md. Числовая логика, база, snapshot и маршруты не менялись.
+
+Прошли Prettier, FSD/ESLint, 11 frontend unit tests, typecheck и native/Pages production builds. Пять native Playwright-сценариев прошли: dashboard/empty/mobile, invalid upload, Steam guard, mock CS2 connect/sync/logout/CSRF, новый сценарий loading → 503 → retry. В последнем проверены доступный status, отсутствие вымышленных показателей до ответа API, мобильная ширина и восстановление интерфейса после повторного запроса. Настоящая демка и внешняя Steam-авторизация в этих проверках не использовались; предыдущие parser-проверки сохранены выше.
+
+Финальная Pages-сборка прошла smoke на ширинах 320/360/390/768/1024/1440/1920, включая отчёт, профиль, reload, выбор игрока и мобильное меню; API-запросов и JavaScript ошибок нет. Отдельно проверены синхронные 4s linear слои, стык цикла, hover, focus/Enter, disabled, reduced motion и forced colors. Axe WCAG 2 A/AA + 2.1 AA: 0 violations на дашборде при 1440 и 390 px. Градиентный текст CTA дополнительно осветлён для читаемости; автоматический axe не оценивает все градиентные фоны.
+
+Lazy chart проверен в браузере: при настоящей недостаточной истории запрос TrendChart отсутствует; контролируемая двухточечная тестовая история отображает ADR и K/D, полностью null-история остаётся пустой. Тестовая история не записывалась в приложение или опубликованный snapshot. WOFF2 сохраняет полную карту символов обоих исходных шрифтов и диапазон переменных весов.
+
+Lighthouse mobile, локальный Python HTTP-server без gzip: Performance 80, Accessibility 100, Best Practices 100; FCP 2.60s, LCP 4.55s, TBT 43ms, CLS 0. Это лабораторная проверка, не реальные Core Web Vitals опубликованного сайта. Цель LCP <2.5s в этом запуске не достигнута. Избыточная загрузка Recharts для пустой истории устранена, суммарный размер используемых шрифтов уменьшен на 61.5%.
+
+Новые скриншоты: screenshots/taste-dashboard-desktop.jpg и screenshots/taste-dashboard-mobile.jpg.

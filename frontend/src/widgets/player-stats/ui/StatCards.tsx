@@ -6,10 +6,12 @@ export function StatCards({
   summary,
   matches,
   players,
+  variant = 'cards',
 }: {
   summary?: Summary
   matches?: number
   players?: number
+  variant?: 'cards' | 'strip'
 }) {
   const items =
     matches != null
@@ -68,7 +70,7 @@ export function StatCards({
           },
         ]
   return (
-    <div className="stat-grid">
+    <div className={`stat-grid ${variant === 'strip' ? 'stat-grid-strip' : ''}`.trim()}>
       {items.map((item) => (
         <div
           key={item.label}

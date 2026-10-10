@@ -1,16 +1,8 @@
-import { useState } from 'react'
-import {
-  CartesianGrid,
-  Line,
-  LineChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from 'recharts'
+import { lazy, Suspense, useState } from 'react'
 import type { Profile } from '@/shared/api/contracts'
-import { fmt } from '@/shared/lib'
 import { Activity } from 'lucide-react'
+
+const TrendChart = lazy(() => import('./TrendChart'))
 
 export function Trend({ profile }: { profile: Profile }) {
   const [metric, setMetric] = useState<'adr' | 'kd'>('adr')
@@ -50,28 +42,13 @@ export function Trend({ profile }: { profile: Profile }) {
         </div>
       ) : (
         <div className="chart">
-          <ResponsiveContainer width="100%" height={235}>
-            <LineChart data={data}>
-              <CartesianGrid stroke="#252e30" strokeDasharray="3 5" vertical={false} />
-              <XAxis dataKey="label" stroke="#7e8c8c" tickLine={false} axisLine={false} />
-              <YAxis stroke="#7e8c8c" tickLine={false} axisLine={false} width={42} />
-              <Tooltip
-                contentStyle={{
-                  background: '#21132f',
-                  border: '1px solid #664a80',
-                  borderRadius: 10,
-                }}
-                formatter={(v) => [fmt(Number(v), 2), metric === 'adr' ? 'ADR' : 'K/D']}
-              />
-              <Line
-                dataKey="value"
-                stroke="var(--accent)"
-                strokeWidth={2.5}
-                dot={{ r: 3, fill: 'var(--accent)' }}
-                connectNulls={false}
-              />
-            </LineChart>
-          </ResponsiveContainer>
+          <Suspense
+            fallback={
+              <div className="chart-skeleton" role="status" aria-label="Загружаем график" />
+            }
+          >
+            <TrendChart data={data} metric={metric} />
+          </Suspense>
         </div>
       )}
     </section>

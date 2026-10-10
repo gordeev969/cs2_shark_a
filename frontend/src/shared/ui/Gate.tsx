@@ -6,14 +6,20 @@ export function Gate({
   error,
   retry,
   children,
+  loadingContent,
 }: {
   loading: boolean
   error?: string
   retry: () => void
   children: ReactNode
+  loadingContent?: ReactNode
 }) {
   if (loading)
-    return (
+    return loadingContent ? (
+      <div role="status" aria-label="Загружаем локальные данные">
+        {loadingContent}
+      </div>
+    ) : (
       <div className="loading" role="status">
         <LoaderCircle className="spin" /> Загружаем локальные данные…
       </div>

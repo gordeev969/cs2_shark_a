@@ -12,6 +12,7 @@ import { MatchRows, hasPendingImports } from '@/entities/match'
 import { StatCards } from '@/widgets/player-stats'
 import { Trend } from '@/widgets/player-history'
 import { DashboardOverview } from '@/widgets/dashboard-overview'
+import { DashboardSkeleton } from './DashboardSkeleton'
 
 export function DashboardPage() {
   const { user } = useAuth()
@@ -28,7 +29,7 @@ export function DashboardPage() {
         title="Обзор игры"
         subtitle={
           isSnapshotMode
-            ? 'Разбор настоящей демки. Все важные показатели — в одном месте.'
+            ? 'Разбор настоящей демки. Все важные показатели в одном месте.'
             : 'Ваши матчи и показатели. От результата к каждому раунду.'
         }
         action={
@@ -45,7 +46,7 @@ export function DashboardPage() {
           )
         }
       />
-      <Gate {...result}>
+      <Gate {...result} loadingContent={<DashboardSkeleton />}>
         {d && (
           <>
             {d.cs2?.error && (
@@ -71,6 +72,7 @@ export function DashboardPage() {
             )}
             <DashboardOverview profile={d.personal} latestMatch={d.recent_matches[0]} user={user} />
             <StatCards
+              variant="strip"
               matches={d.match_count}
               players={d.player_count}
               summary={d.personal?.rolling}
@@ -114,7 +116,18 @@ export function DashboardPage() {
                         </span>
                       </div>
                     </div>
-                    <div className="sample-track" aria-hidden="true">
+                    <div
+                      className="sample-track"
+                      role="progressbar"
+                      aria-label="Матчи для анализа изменений"
+                      aria-valuemin={0}
+                      aria-valuemax={d.personal.insights.minimum_matches}
+                      aria-valuenow={Math.min(
+                        d.personal.insights.sample_size,
+                        d.personal.insights.minimum_matches,
+                      )}
+                      aria-valuetext={`${d.personal.insights.sample_size} матчей в истории; минимум ${d.personal.insights.minimum_matches} для анализа`}
+                    >
                       {Array.from({ length: d.personal.insights.minimum_matches }, (_, i) => (
                         <span
                           key={i}

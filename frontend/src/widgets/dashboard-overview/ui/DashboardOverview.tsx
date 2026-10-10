@@ -19,9 +19,15 @@ export function DashboardOverview({
   return (
     <div className="overview-grid">
       <section className="profile-overview">
-        <div className="overview-kicker">
-          <span className="live-dot" />
-          {isSnapshotMode ? 'ВЫБРАННЫЙ ИГРОК' : 'ВАШ ПРОФИЛЬ'}
+        <div className="overview-profile-heading">
+          <span className="overview-kicker">
+            {isSnapshotMode ? 'Выбранный игрок' : 'Ваш профиль'}
+          </span>
+          {profile && (
+            <Link to={`/players/${profile.steam_id64}`} className="text-link">
+              Профиль игрока <ArrowRight size={16} />
+            </Link>
+          )}
         </div>
         <div className="overview-identity">
           {user?.avatar_url ? (
@@ -61,9 +67,6 @@ export function DashboardOverview({
                 <strong>{fmt(profile.summary.assists, 0)}</strong>
                 <span>Ассисты</span>
               </div>
-              <Link to={`/players/${profile.steam_id64}`} className="button secondary">
-                Профиль игрока <ArrowRight size={16} />
-              </Link>
             </div>
             <div className="overview-footnote">
               <Crosshair size={13} /> Только завершённые раунды · без данных разминки
@@ -81,7 +84,7 @@ export function DashboardOverview({
       {latestMatch ? (
         <Link className="latest-match-card" to={`/matches/${latestMatch.id}`}>
           <div className="latest-match-heading">
-            <span className="overview-kicker">ПОСЛЕДНИЙ МАТЧ</span>
+            <span className="overview-kicker">Последний матч</span>
             {latestMatch.result ? (
               <span className={`match-result ${latestMatch.result}`}>
                 {latestMatch.result === 'win'
@@ -96,7 +99,7 @@ export function DashboardOverview({
           </div>
           <div className="latest-match-core">
             <div>
-              <span className="map-category">CS2 / ЗАПИСЬ #{latestMatch.id}</span>
+              <span className="map-category">Запись #{latestMatch.id}</span>
               <h2>{mapName(latestMatch.map_name)}</h2>
             </div>
             <strong className="latest-score">
@@ -128,7 +131,7 @@ export function DashboardOverview({
       ) : (
         <section className="latest-match-card no-match">
           <Crosshair size={38} />
-          <h2>Следующий матч — первый</h2>
+          <h2>Ваш первый матч</h2>
           <p>Здесь появится карта, результат и переход к подробному отчёту.</p>
         </section>
       )}

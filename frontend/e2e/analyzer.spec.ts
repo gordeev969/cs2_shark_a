@@ -1,5 +1,35 @@
 import { expect, test } from '@playwright/test'
 
+test('dashboard loading, failure and retry remain accessible on mobile', async ({ page }) => {
+  let fail = true
+  let release!: () => void
+  const pending = new Promise<void>((resolve) => {
+    release = resolve
+  })
+  await page.route('**/api/dashboard?**', async (route) => {
+    await pending
+    if (fail) await route.fulfill({ status: 503, json: { detail: 'Данные временно недоступны' } })
+    else await route.continue()
+  })
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.goto('/')
+  try {
+    await expect(page.getByRole('status', { name: 'Загружаем локальные данные' })).toBeVisible()
+    await expect(page.locator('.stat-card')).toHaveCount(0)
+    expect(
+      await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),
+    ).toBe(true)
+  } finally {
+    release()
+  }
+  await expect(page.getByRole('alert')).toContainText('Данные временно недоступны')
+  await expect(page.getByRole('status', { name: 'Загружаем локальные данные' })).toHaveCount(0)
+  fail = false
+  await page.getByRole('button', { name: 'Повторить', exact: true }).click()
+  await expect(page.locator('.profile-overview')).toBeVisible()
+  await expect(page.getByRole('alert')).toHaveCount(0)
+})
+
 test('Russian dashboard, empty state and mobile navigation', async ({ page, request }) => {
   const d = await (await request.get('/api/dashboard')).json()
   await page.goto('/')
