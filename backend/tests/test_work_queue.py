@@ -11,8 +11,9 @@ from types import SimpleNamespace
 import pytest
 from fastapi.testclient import TestClient
 
+from backend.app.auth import SecretCipher
 from backend.app.config import Config
-from backend.app.cs2sync import Synchronizer
+from backend.app.cs2sync import Synchronizer, SyncStore
 from backend.app.db import Database
 from backend.app.jobs import parse_isolated
 from backend.app.main import create_app
@@ -251,6 +252,24 @@ def test_failed_file_publication_rolls_back_the_job(tmp_path, monkeypatch):
         assert client.get("/api/matches").json() == []
         with client.app.state.db.connect() as c:
             assert c.execute("SELECT COUNT(*) FROM work_queue").fetchone()[0] == 0
+
+
+def test_sync_cannot_lose_a_new_request_while_finishing_the_previous_job(tmp_path):
+    config = Config(data_dir=tmp_path)
+    db = Database(config.database)
+    db.initialize()
+    store = SyncStore(db, SecretCipher(config))
+    store.initialize()
+    store.configure(P, AUTH, CODE_A)
+    assert store.enqueue(P)
+    job = db.claim_work("sync")
+    # refresh() has published its final state, but the worker is still finalizing.
+    store.set_state(P, "idle")
+    assert not store.enqueue(P)
+    assert store.connection(P)["status"] == "idle"
+    db.finish_work(job["id"])
+    assert store.enqueue(P)
+    assert db.claim_work("sync")["subject"] == P
 
 
 def test_sync_parses_waiting_statistics_before_downloading_the_next_match(tmp_path, parsed):

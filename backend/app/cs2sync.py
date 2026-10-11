@@ -130,8 +130,10 @@ class SyncStore:
         with self.db.connect() as c:
             c.execute(
                 "UPDATE cs2_connections SET status='queued',error=NULL "
-                "WHERE steam_id64=? AND status NOT IN ('queued','syncing')",
-                (steam_id,),
+                "WHERE steam_id64=? AND status NOT IN ('queued','syncing') "
+                "AND NOT EXISTS (SELECT 1 FROM work_queue WHERE kind='sync' AND subject=? "
+                "AND status IN ('queued','processing'))",
+                (steam_id, steam_id),
             )
             fresh = c.execute("SELECT changes()").fetchone()[0] == 1
             if fresh:
