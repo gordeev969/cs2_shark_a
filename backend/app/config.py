@@ -12,6 +12,7 @@ class Config:
     max_upload_bytes: int = int(os.getenv("CS2_MAX_UPLOAD_MB", "512")) * 1024 * 1024
     parser_timeout: int = int(os.getenv("CS2_PARSER_TIMEOUT", "180"))
     retain_demos: bool = os.getenv("CS2_RETAIN_DEMOS", "false").lower() == "true"
+    max_pending_imports: int = int(os.getenv("CS2_MAX_PENDING_IMPORTS", "8"))
     steam_public_url: str = (
         os.getenv("STEAM_PUBLIC_URL") or os.getenv("RENDER_EXTERNAL_URL") or "http://127.0.0.1:8000"
     ).rstrip("/")
@@ -29,6 +30,8 @@ class Config:
         return self.steam_web_api_key
 
     def __post_init__(self):
+        if self.max_pending_imports < 1:
+            raise ValueError("CS2_MAX_PENDING_IMPORTS должен быть положительным числом.")
         public = urlsplit(self.steam_public_url)
         if (
             public.scheme not in ("http", "https")

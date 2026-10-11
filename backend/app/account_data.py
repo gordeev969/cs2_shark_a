@@ -41,11 +41,13 @@ class AccountData:
                 (personal or owner or "", *params),
             ).fetchall()
         result = []
+        positions = self.db.queue_positions()
         for raw in rows:
             row = self.db.decode(raw)
             stats = row.pop("personal_json")
             row["personal_stats"] = json.loads(stats) if stats else None
             row["result"] = self.result(row)
+            row["queue_position"] = positions.get(row["id"]) if row["status"] == "queued" else None
             result.append(row)
         return result
 

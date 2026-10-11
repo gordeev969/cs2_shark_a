@@ -6,11 +6,11 @@ import tempfile
 from pathlib import Path
 
 
-def parse_isolated(path, timeout):
+def parse_isolated(path, timeout, inherit_fds=()):
     path = Path(path).resolve()
     with tempfile.TemporaryDirectory(prefix="cs2-parser-", dir=path.parent) as directory:
         output = Path(directory) / "result.json"
-        env = {**os.environ, "POLARS_MAX_THREADS": "2", "RAYON_NUM_THREADS": "2"}
+        env = {**os.environ, "POLARS_MAX_THREADS": "1", "RAYON_NUM_THREADS": "1"}
         try:
             result = subprocess.run(
                 [sys.executable, "-m", "backend.app.parser", str(path), str(output)],
@@ -20,6 +20,7 @@ def parse_isolated(path, timeout):
                 shell=False,
                 timeout=timeout,
                 text=True,
+                **({"pass_fds": inherit_fds} if os.name != "nt" else {}),
             )
         except subprocess.TimeoutExpired as exc:
             raise ValueError(
@@ -43,13 +44,17 @@ def parse_isolated(path, timeout):
 
 def run_job(db, config, match_id, path, parse=parse_isolated):
     db.status(match_id, "processing")
+    error = None
     try:
         parsed = parse(path, config.parser_timeout)
         if not parsed.get("players"):
             raise ValueError("В демке не найдены участники с достоверными SteamID64.")
         db.persist(match_id, parsed)
     except Exception as exc:
-        db.status(match_id, "failed", str(exc)[:1200])
+        error = str(exc)[:1200]
     finally:
         if not config.retain_demos:
             path.unlink(missing_ok=True)
+    if error is not None:
+        # Finish cleanup before a new upload is allowed to retry the same hash.
+        db.status(match_id, "failed", error)

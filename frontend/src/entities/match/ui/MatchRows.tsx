@@ -62,7 +62,7 @@ export function MatchRows({ matches }: { matches: Match[] }) {
               {m.result === 'win' ? 'Победа' : m.result === 'loss' ? 'Поражение' : 'Ничья'}
             </span>
           ) : (
-            <Status value={m.status} />
+            <Status value={m.status} position={m.queue_position} />
           )}
           <ChevronRight className="muted" size={17} />
         </Link>

@@ -28,11 +28,11 @@ function NativeDemoImport() {
   const [duplicate, setDuplicate] = useState(false)
   const [dragging, setDragging] = useState(false)
   const xhrRef = useRef<XMLHttpRequest | null>(null)
+  const inputRef = useRef<HTMLInputElement | null>(null)
   const job = useData<MatchDetail>(id ? `/api/matches/${id}` : null, isMatchPending)
   useEffect(() => () => xhrRef.current?.abort(), [])
   const limit = health.data?.max_upload_bytes
-  const busy =
-    progress !== null || job.data?.status === 'queued' || job.data?.status === 'processing'
+  const busy = progress !== null
 
   function selectFile(candidate?: File) {
     if (!candidate || busy) return
@@ -71,6 +71,8 @@ function NativeDemoImport() {
       if (xhr.status >= 200 && xhr.status < 300 && typeof xhr.response?.id === 'number') {
         setId(xhr.response.id)
         setDuplicate(xhr.response.duplicate)
+        setFile(null)
+        if (inputRef.current) inputRef.current.value = ''
       } else
         setError(
           typeof xhr.response?.detail === 'string'
@@ -126,6 +128,7 @@ function NativeDemoImport() {
               </span>
               <small>Несжатый .dem · до {limit ? Math.floor(limit / 1024 / 1024) : '…'} МБ</small>
               <input
+                ref={inputRef}
                 id="demo-file"
                 aria-label="Выбрать демку"
                 className="sr-only"
@@ -153,12 +156,17 @@ function NativeDemoImport() {
               <Gate {...job}>
                 {job.data && (
                   <div className={`job-result ${job.data.status}`} role="status">
-                    <Status value={job.data.status} />
+                    <Status value={job.data.status} position={job.data.queue_position} />
                     {duplicate && (
                       <p>Эта демка уже есть в базе. Повторная статистика не создана.</p>
                     )}
                     {job.data.status === 'processing' || job.data.status === 'queued' ? (
-                      <p>Разбираем запись. Можно перейти в библиотеку — обработка продолжится.</p>
+                      <p>
+                        {job.data.status === 'processing'
+                          ? 'Считываем статистику. Можно загрузить следующую демку.'
+                          : 'Файл сохранён в общей очереди. Можно загрузить следующую демку.'}{' '}
+                        Отслеживайте все записи в разделе «Матчи».
+                      </p>
                     ) : job.data.status === 'failed' ? (
                       <p className="error-text">{job.data.error}</p>
                     ) : (
@@ -182,7 +190,7 @@ function NativeDemoImport() {
             >
               {busy ? <LoaderCircle size={17} className="spin" /> : <FileUp size={17} />}
               {busy
-                ? 'Обрабатываем запись…'
+                ? 'Загружаем запись…'
                 : job.data?.status === 'failed'
                   ? 'Повторить импорт'
                   : 'Загрузить и разобрать'}

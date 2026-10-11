@@ -94,7 +94,7 @@ export function DashboardOverview({
                     : 'Ничья'}
               </span>
             ) : (
-              <Status value={latestMatch.status} />
+              <Status value={latestMatch.status} position={latestMatch.queue_position} />
             )}
           </div>
           <div className="latest-match-core">

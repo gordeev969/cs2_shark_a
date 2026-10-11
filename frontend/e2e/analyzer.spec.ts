@@ -1,5 +1,57 @@
 import { expect, test } from '@playwright/test'
 
+test('queued import shows its position and allows the next upload', async ({ page }) => {
+  let uploads = 0
+  const errors: string[] = []
+  page.on('pageerror', (error) => errors.push(error.message))
+  await page.route('**/api/matches/import', async (route) => {
+    uploads++
+    await route.fulfill({
+      status: 202,
+      json: { id: 990 + uploads, status: 'queued', queue_position: uploads + 1, duplicate: false },
+    })
+  })
+  await page.route(/\/api\/matches\/99[12]$/, async (route) => {
+    const id = Number(new URL(route.request().url()).pathname.split('/').at(-1))
+    await route.fulfill({
+      json: {
+        id,
+        status: 'queued',
+        queue_position: id - 989,
+        error: null,
+        imported_at: '2026-01-01T00:00:00Z',
+        played_at: null,
+        map_name: null,
+        players: [],
+        rounds: [],
+        diagnostics: [],
+        team_scores: null,
+      },
+    })
+  })
+  await page.goto('/import')
+  const input = page.getByLabel('Выбрать демку')
+  const button = page.getByRole('button', { name: 'Загрузить и разобрать' })
+  for (const number of [1, 2]) {
+    await input.setInputFiles({
+      name: `queued-${number}.dem`,
+      mimeType: 'application/octet-stream',
+      buffer: Buffer.from('Browser-only mocked upload'),
+    })
+    await expect(button).toBeEnabled()
+    await button.click()
+    await expect(page.getByText(`В очереди · №${number + 1}`, { exact: true })).toBeVisible()
+    await expect(input).toBeEnabled()
+    await expect(button).toBeDisabled()
+    await expect(page.getByText(/Можно загрузить следующую демку/)).toBeVisible()
+  }
+  expect(uploads).toBe(2)
+  await page.goto('/matches/992')
+  await expect(page.getByText('В очереди · №3', { exact: true })).toBeVisible()
+  await expect(page.getByText(/Записи всех пользователей разбираются по одной/)).toBeVisible()
+  expect(errors).toEqual([])
+})
+
 test('dashboard loading, failure and retry remain accessible on mobile', async ({ page }) => {
   let fail = true
   let release!: () => void

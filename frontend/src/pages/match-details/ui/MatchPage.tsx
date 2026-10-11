@@ -38,10 +38,12 @@ export function MatchPage() {
           <>
             {m.status !== 'ready' ? (
               <section className="panel">
-                <Status value={m.status} />
+                <Status value={m.status} position={m.queue_position} />
                 <p className={m.status === 'failed' ? 'error-text' : 'muted'}>
                   {m.error ??
-                    'Демка ожидает разбора. Статистика появится после завершения обработки.'}
+                    (m.status === 'processing'
+                      ? 'Считываем статистику из демки. Результат появится после завершения разбора.'
+                      : 'Демка сохранена в общей очереди. Записи всех пользователей разбираются по одной.')}
                 </p>
                 {m.status === 'failed' && (
                   <Link to="/import" className="button primary">

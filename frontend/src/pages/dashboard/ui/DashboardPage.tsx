@@ -49,6 +49,15 @@ export function DashboardPage() {
       <Gate {...result} loadingContent={<DashboardSkeleton />}>
         {d && (
           <>
+            {!!d.queued_count && (
+              <p className="notice" role="status">
+                Ваших демок в обработке: {d.queued_count}. Общая очередь разбирает записи по одной.{' '}
+                Готовая статистика доступна сразу.{' '}
+                <Link className="text-link" to="/matches">
+                  Открыть очередь <ArrowRight size={14} />
+                </Link>
+              </p>
+            )}
             {d.cs2?.error && (
               <p className="notice" role="status">
                 {d.cs2.error}{' '}

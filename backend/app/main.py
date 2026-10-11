@@ -2,7 +2,6 @@ import hashlib
 import importlib.metadata
 import os
 import tempfile
-from concurrent.futures import ThreadPoolExecutor
 from contextlib import asynccontextmanager
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -17,10 +16,11 @@ from .account_data import AccountData
 from .auth import AuthService, SecretCipher, SessionMiddleware, auth_router, authenticated_user
 from .config import Config
 from .cs2sync import GCClient, SteamMatchClient, SyncError, Synchronizer, SyncStore
-from .db import Database
+from .db import Database, QueueFull
 from .insights import match_notes
-from .jobs import parse_isolated, run_job
+from .jobs import parse_isolated
 from .web import SPAStaticFiles
+from .work_queue import WorkQueue
 
 LOCAL_ORIGINS = {
     "http://localhost:5173",
@@ -107,32 +107,16 @@ def create_app(config=None, parse=parse_isolated, auth_transport=None, sync_fact
         application.state.synchronizer = (
             sync_factory(db, config, store) if sync_factory else synchronizer
         )
-        with db.connect() as c:
-            c.execute(
-                "UPDATE cs2_connections SET status='idle',error='Синхронизация прервана перезапуском. Повторите её.' WHERE status IN ('queued','syncing')"
-            )
         auth.cleanup()
         os.chmod(config.database, 0o600)
-        pool = ThreadPoolExecutor(max_workers=1, thread_name_prefix="cs2-parser")
-        application.state.pool = pool
-        # A process crash can interrupt parsing. Complete queued imports after restart.
-        for row in db.matches():
-            if row["status"] in ("queued", "processing"):
-                path = config.uploads / f"{row['file_sha256']}.dem"
-                if path.exists():
-                    db.status(row["id"], "queued")
-                    pool.submit(run_job, db, config, row["id"], path, parse)
-                else:
-                    db.status(
-                        row["id"],
-                        "failed",
-                        "Импорт прерван: файл отсутствует. Загрузите демку повторно.",
-                    )
-        # Unreserved partial uploads have no durable job and are safe to discard.
-        for path in config.uploads.glob("incoming-*.tmp"):
-            path.unlink(missing_ok=True)
-        yield
-        pool.shutdown(wait=True, cancel_futures=False)
+        queue = WorkQueue(db, config, application.state.synchronizer, parse)
+        application.state.queue = queue
+        queue.start()
+        try:
+            yield
+        finally:
+            # Finish the active task; waiting jobs remain durable for the next start.
+            queue.stop()
 
     application = FastAPI(title="CS2 Premier Analyzer", version="0.1.0", lifespan=lifespan)
     application.state.db = db
@@ -168,6 +152,8 @@ def create_app(config=None, parse=parse_isolated, auth_transport=None, sync_fact
             "max_upload_bytes": config.max_upload_bytes,
             "retain_demos": config.retain_demos,
             "ai_enabled": False,
+            "parser_concurrency": 1,
+            "max_pending_imports": config.max_pending_imports,
         }
 
     @application.post("/api/matches/import", status_code=202)
@@ -200,22 +186,28 @@ def create_app(config=None, parse=parse_isolated, auth_transport=None, sync_fact
                     422,
                     "Файл не является бинарной CS2-демкой (ожидается PBDEMS2). CS:GO и пустые файлы не поддерживаются.",
                 )
-            match_id, fresh = db.reserve(digest.hexdigest())
+            target = config.uploads / f"{digest.hexdigest()}.dem"
+            try:
+                match_id, fresh = db.reserve(
+                    digest.hexdigest(),
+                    publish=lambda: path.replace(target),
+                    max_pending=config.max_pending_imports,
+                )
+            except QueueFull as exc:
+                raise HTTPException(429, str(exc)) from None
+            except OSError:
+                raise HTTPException(
+                    507, "Не удалось сохранить демку. Проверьте свободное место."
+                ) from None
             accounts.attach(owner(request), match_id)
-            if fresh:
-                target = config.uploads / f"{digest.hexdigest()}.dem"
-                try:
-                    path.replace(target)
-                    application.state.pool.submit(run_job, db, config, match_id, target, parse)
-                except Exception:
-                    db.status(
-                        match_id,
-                        "failed",
-                        "Не удалось сохранить или запустить импорт. Повторите загрузку.",
-                    )
-                    target.unlink(missing_ok=True)
-                    raise HTTPException(500, "Не удалось запустить импорт.") from None
-            return {"id": match_id, "status": db.match(match_id)["status"], "duplicate": not fresh}
+            application.state.queue.notify()
+            match = db.match(match_id)
+            return {
+                "id": match_id,
+                "status": match["status"],
+                "queue_position": match["queue_position"],
+                "duplicate": not fresh,
+            }
         finally:
             await file.close()
             if path:
@@ -334,17 +326,7 @@ def create_app(config=None, parse=parse_isolated, auth_transport=None, sync_fact
         if not application.state.sync_store.enqueue(steam):
             raise HTTPException(409, "Синхронизация уже в очереди.")
 
-        def refresh():
-            try:
-                application.state.synchronizer.refresh(steam)
-            except SyncError as exc:
-                application.state.sync_store.set_state(steam, exc.status, str(exc), completed=True)
-            except Exception:
-                application.state.sync_store.set_state(
-                    steam, "error", "Синхронизация прервана. Повторите позже.", completed=True
-                )
-
-        application.state.pool.submit(refresh)
+        application.state.queue.notify()
         return application.state.synchronizer.status(steam)
 
     if config.frontend_dir:

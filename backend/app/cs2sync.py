@@ -18,7 +18,7 @@ from urllib.parse import urlsplit
 
 import httpx
 
-from .db import now
+from .db import QueueFull, now
 from .jobs import parse_isolated, run_job
 
 SHARE_CODE = re.compile(
@@ -133,7 +133,10 @@ class SyncStore:
                 "WHERE steam_id64=? AND status NOT IN ('queued','syncing')",
                 (steam_id,),
             )
-            return c.execute("SELECT changes()").fetchone()[0] == 1
+            fresh = c.execute("SELECT changes()").fetchone()[0] == 1
+            if fresh:
+                self.db.enqueue_work(c, "sync", steam_id)
+            return fresh
 
     def set_state(self, steam_id, state, error=None, completed=False):
         with self.db.connect() as c:
@@ -419,6 +422,7 @@ class Synchronizer:
             config.max_upload_bytes, config.max_upload_bytes
         )
         self._lock = threading.Lock()
+        self.process_imports = None
 
     def status(self, steam_id):
         return self.store.status(
@@ -492,6 +496,9 @@ class Synchronizer:
             self._lock.release()
 
     def _import_code(self, steam_id, code):
+        if self.process_imports:
+            # An upload may have arrived during Steam discovery or the previous replay.
+            self.process_imports(None, self.parse)
         self.store.mark_code(steam_id, code, "downloading")
         replay = self.gc_client.resolve(code)
         self.config.uploads.mkdir(parents=True, exist_ok=True, mode=0o700)
@@ -501,11 +508,26 @@ class Synchronizer:
             path = Path(output.name)
         try:
             digest = self.downloader.download(replay["demo_url"], path)
-            match_id, fresh = self.db.reserve(digest)
             target = self.config.uploads / f"{digest}.dem"
+            if self.process_imports:
+                # Free queue slots and publish available statistics before reserving
+                # the downloaded replay; uploads may have arrived during its transfer.
+                self.process_imports(None, self.parse)
+            try:
+                match_id, fresh = self.db.reserve(
+                    digest,
+                    publish=lambda: path.replace(target),
+                    max_pending=self.config.max_pending_imports,
+                )
+            except QueueFull as exc:
+                raise SyncError(str(exc)) from None
             if fresh:
-                path.replace(target)
-                run_job(self.db, self.config, match_id, target, self.parse)
+                if self.process_imports:
+                    self.process_imports(match_id, self.parse)
+                else:
+                    run_job(self.db, self.config, match_id, target, self.parse)
+            elif self.process_imports:
+                self.process_imports(match_id, self.parse)
             match = self.db.match(match_id)
             if match["status"] != "ready":
                 raise SyncError(

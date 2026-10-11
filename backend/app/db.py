@@ -10,6 +10,10 @@ def now():
     return datetime.now(timezone.utc).isoformat()
 
 
+class QueueFull(Exception):
+    pass
+
+
 class Database:
     def __init__(self, path):
         self.path = path
@@ -29,7 +33,7 @@ class Database:
         self.path.parent.mkdir(parents=True, exist_ok=True)
         with self.connect() as c:
             version = c.execute("PRAGMA user_version").fetchone()[0]
-            if version not in (0, 1, 2):
+            if version not in (0, 1, 2, 3):
                 raise RuntimeError(
                     "Неподдерживаемая версия SQLite. Сохраните базу и используйте совместимую версию приложения."
                 )
@@ -68,11 +72,27 @@ class Database:
                     steam_id64 TEXT NOT NULL, match_id INTEGER NOT NULL REFERENCES matches(id) ON DELETE CASCADE,
                     source TEXT NOT NULL, created_at TEXT NOT NULL,
                     PRIMARY KEY(steam_id64,match_id));
-                PRAGMA user_version=2;
+                CREATE TABLE IF NOT EXISTS work_queue (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    kind TEXT NOT NULL CHECK(kind IN ('import','sync')),
+                    subject TEXT NOT NULL, created_at TEXT NOT NULL,
+                    status TEXT NOT NULL DEFAULT 'queued');
+                CREATE UNIQUE INDEX IF NOT EXISTS active_work ON work_queue(kind,subject)
+                    WHERE status IN ('queued','processing');
+                CREATE INDEX IF NOT EXISTS waiting_work ON work_queue(status,kind,id);
+                PRAGMA user_version=3;
             """)
 
-    def reserve(self, digest):
+    @staticmethod
+    def enqueue_work(connection, kind, subject):
+        connection.execute(
+            "INSERT OR IGNORE INTO work_queue(kind,subject,created_at) VALUES(?,?,?)",
+            (kind, str(subject), now()),
+        )
+
+    def reserve(self, digest, publish=None, max_pending=None):
         with self.connect() as c:
+            c.execute("BEGIN IMMEDIATE")
             c.execute(
                 "INSERT OR IGNORE INTO matches(file_sha256,status,imported_at) VALUES(?, 'queued', ?)",
                 (digest, now()),
@@ -85,11 +105,69 @@ class Database:
                     (row["id"],),
                 )
                 fresh = c.execute("SELECT changes()").fetchone()[0] == 1
+            if fresh:
+                pending = c.execute(
+                    "SELECT COUNT(*) FROM matches WHERE status IN ('queued','processing')"
+                ).fetchone()[0]
+                if max_pending is not None and pending > max_pending:
+                    raise QueueFull(
+                        "Очередь разбора заполнена. Дождитесь обработки и повторите загрузку."
+                    )
+                # Publish before commit: the worker never sees a job without its file.
+                if publish:
+                    publish()
+                self.enqueue_work(c, "import", row["id"])
             return row["id"], fresh
 
     def status(self, match_id, status, error=None):
         with self.connect() as c:
             c.execute("UPDATE matches SET status=?, error=? WHERE id=?", (status, error, match_id))
+            if status in ("processing", "failed"):
+                c.execute(
+                    "UPDATE work_queue SET status=? WHERE kind='import' AND subject=? "
+                    "AND status IN ('queued','processing')",
+                    (status, str(match_id)),
+                )
+
+    def claim_work(self, kind=None):
+        with self.connect() as c:
+            c.execute("BEGIN IMMEDIATE")
+            row = c.execute(
+                "SELECT * FROM work_queue WHERE status='queued' AND (? IS NULL OR kind=?) "
+                "ORDER BY CASE kind WHEN 'import' THEN 0 ELSE 1 END,id LIMIT 1",
+                (kind, kind),
+            ).fetchone()
+            if row:
+                c.execute("UPDATE work_queue SET status='processing' WHERE id=?", (row["id"],))
+            return dict(row) if row else None
+
+    def finish_work(self, job_id, status="done"):
+        with self.connect() as c:
+            c.execute("UPDATE work_queue SET status=? WHERE id=?", (status, job_id))
+
+    def recover_work(self):
+        """Only the process holding the global worker lock may recover jobs."""
+        with self.connect() as c:
+            c.execute("BEGIN IMMEDIATE")
+            c.execute("UPDATE work_queue SET status='queued' WHERE status='processing'")
+            c.execute("UPDATE matches SET status='queued' WHERE status='processing'")
+            for row in c.execute(
+                "SELECT id FROM matches WHERE status='queued' ORDER BY imported_at,id"
+            ).fetchall():
+                self.enqueue_work(c, "import", row["id"])
+            c.execute("UPDATE cs2_connections SET status='queued' WHERE status='syncing'")
+            for row in c.execute(
+                "SELECT steam_id64 FROM cs2_connections WHERE status='queued' ORDER BY steam_id64"
+            ).fetchall():
+                self.enqueue_work(c, "sync", row["steam_id64"])
+
+    def queue_positions(self):
+        with self.connect() as c:
+            rows = c.execute(
+                "SELECT q.subject FROM work_queue q JOIN matches m ON CAST(m.id AS TEXT)=q.subject "
+                "WHERE q.kind='import' AND q.status='queued' AND m.status='queued' ORDER BY q.id"
+            ).fetchall()
+        return {int(row["subject"]): i + 1 for i, row in enumerate(rows)}
 
     def persist(self, match_id, parsed):
         with self.connect() as c:
@@ -132,6 +210,11 @@ class Database:
                     match_id,
                 ),
             )
+            c.execute(
+                "UPDATE work_queue SET status='done' WHERE kind='import' AND subject=? "
+                "AND status IN ('queued','processing')",
+                (str(match_id),),
+            )
 
     @staticmethod
     def decode(row):
@@ -152,6 +235,7 @@ class Database:
             ]
 
     def match(self, match_id):
+        positions = self.queue_positions()
         with self.connect() as c:
             row = self.decode(c.execute("SELECT * FROM matches WHERE id=?", (match_id,)).fetchone())
             if row is None:
@@ -172,6 +256,7 @@ class Database:
             ]
             row["player_count"] = len(row["players"])
             row["round_count"] = len(row["rounds"])
+            row["queue_position"] = positions.get(match_id) if row["status"] == "queued" else None
             return row
 
     def search(self, query):

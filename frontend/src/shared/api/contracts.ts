@@ -22,6 +22,7 @@ export interface Match {
   result?: 'win' | 'loss' | 'draw' | null
   id: number
   status: 'queued' | 'processing' | 'ready' | 'failed'
+  queue_position?: number | null
   map_name: string | null
   imported_at: string
   played_at: string | null
@@ -98,6 +99,8 @@ export interface Dashboard {
   settings: Settings
 }
 export interface Health {
+  parser_concurrency?: number
+  max_pending_imports?: number
   status: string
   max_upload_bytes: number
   parser_version: string
